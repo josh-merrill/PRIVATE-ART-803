@@ -1,0 +1,21 @@
+<h1>Welcome <%= @user.first_name %>, to your profile page!</h1>
+
+<h2>All your artwork</h2>
+
+<% @user.artworks_as_artist.each do |artwork| %>
+  <p><%= artwork.title%> -- <%= artwork.price %></p>
+<% end %>
+
+<h2>Artwork you've purchased</h2>
+
+  <% @user.artworks_as_buyer.each do |artwork| %>
+  <p><%= artwork.title%> -- <%= artwork.price %></p>
+<% end %>
+
+<h2>Artwork you've sold</h2>
+
+<% @user.artworks_as_artist.each do |artwork| %>
+  <% if artwork.buyer_id != current_user.id %>
+    <p><%= artwork.title%> -- <%= artwork.price %></p>
+  <% end %>
+<% end %>
