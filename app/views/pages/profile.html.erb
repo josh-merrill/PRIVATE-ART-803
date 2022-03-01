@@ -6,12 +6,18 @@
 
 <% @user.artworks_as_artist.each do |artwork| %>
   <p><%= artwork.title%> -- <%= artwork.price %> <a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
+  <% if artwork.photo.present? %>
+    <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 <% end %>
 
 <h2>Artwork you've purchased</h2>
 
   <% @user.artworks_as_buyer.each do |artwork| %>
   <p><%= artwork.title%> -- <%= artwork.price %><a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
+  <% if artwork.photo.present? %>
+    <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 <% end %>
 
 <h2>Artwork you've sold</h2>
@@ -19,5 +25,8 @@
 <% @user.artworks_as_artist.each do |artwork| %>
   <% if artwork.buyer_id != current_user.id %>
     <p><%= artwork.title%> -- <%= artwork.price %><a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
+    <% if artwork.photo.present? %>
+      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   <% end %>
 <% end %>
