@@ -262,11 +262,8 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
-<<<<<<< HEAD
-  x86_64-darwin-17
-=======
+
   arm64-darwin-21
->>>>>>> 340fe0000bdefe097b0f2ff35341dae66b80059a
   x86_64-darwin-21
   x86_64-linux
 
