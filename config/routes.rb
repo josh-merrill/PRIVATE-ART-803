@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  #get 'artworks/index'
-  #get 'artworks/new'
-  devise_for :users
-=======
   devise_for :users, only: [:artists]
->>>>>>> 39945aca3788dc37c014638b7a0010e241b20293
   root to: 'pages#home'
   resources :artworks, only: [:new, :create]
   resources :auctions, only: [:new, :create, :edit, :update, :destroy]
