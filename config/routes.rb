@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'artworks/index'
-  get 'artworks/new'
+  #get 'artworks/index'
+  #get 'artworks/new'
   devise_for :users
   root to: 'pages#home'
   get 'profile', to: 'pages#profile', as: 'profile'
