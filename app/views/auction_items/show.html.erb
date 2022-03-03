@@ -1,0 +1,28 @@
+<h1><%= @auction.description %></h1>
+
+<p>artwork image</p>
+
+<div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>">
+
+  <%# <button type="button" class="btn btn-success" data-action="click->bidding#addBid">Success</button> %>
+  <%= form_with url: auction_auction_item_bids_path(auction_item_id: params[:id]), method: :post, html: { class:
+    'mb-4', data: { bidding_target: 'form' } } do |f| %>
+    <%= f.text_field :price,
+                     class: "form-control",
+                     placeholder: 'Input a bid amount',
+                     value: params[:query],
+                     data: { bidding_target: 'input'} %>
+    <%= f.submit %>
+    <% end %>
+
+  <div class="#" data-bidding-target="content">
+    <% @bids.each do |bid| %>
+      <%= render "shared/bid", bid: bid %>
+      <p><%= bid.price %></p>
+    <% end %>
+</div>
+
+</div>
+
+
+<p>ability to create a bid</p>
