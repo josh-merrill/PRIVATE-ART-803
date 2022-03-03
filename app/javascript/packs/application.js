@@ -14,3 +14,10 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+import "flatpickr"
+import flatpickr from "flatpickr"
+
+document.addEventListener("turbolinks:load", () => {
+  $('[data-tooltip-display="true"]').tooltip(),
+    flatpickr("[class='flatpickr']", {})
+})
