@@ -1,7 +1,12 @@
-<%# This page may be deleted.  This page is a placeholder only%>
-<h1>Auctions#index</h1>
-<ul>
-  <% @auctions.each do |auction|%>
-    <li><%= auction.title %> </li>
+<h1>Upcoming Auctions</h1>
+<div class="row my-5">
+  <ul>
+    <% @auctions.each do |auction|%>
+      <%= link_to auction_path (auction.id) do %>
+      <h3><%= auction.title %> </h3>
+    <% end %>
+      <b><%= auction.address %> / <%= auction.date %></b>
+      <p><%= auction.description %> / <%= auction.user.first_name %> <%= auction.user.last_name %></p>
+  </ul>
   <% end %>
-</ul>
+</div>

@@ -15,19 +15,22 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Auctions", auctions_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", profile_path, class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-                    <li class="nav-item">
+          <li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Auctions", auctions_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>

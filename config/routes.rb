@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   get 'profile', to: 'pages#profile', as: 'profile'
+  get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
   get 'my_auctions', to: 'pages#my_auctions', as: 'my_auctions'
   resources :auction_items, only: [] do
     member do

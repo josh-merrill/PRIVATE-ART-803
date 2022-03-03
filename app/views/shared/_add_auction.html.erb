@@ -1,10 +1,11 @@
 
 <%= simple_form_for @auction do |f| %>
+      <%= f.input :title %>
       <%= f.input :description %>
       <%= f.input :address %>
       <%= f.input :date %>
       <%= f.input :status %>
-      <%= f.input :start_time %>
-      <%= f.input :end_time %>
+      <%= f.input :start_time, as: :effective_date_time_picker, input_js: Event::DATEPICKER_JS %>
+      <%= f.input :end_time, as: :effective_date_time_picker, input_js: Event::DATEPICKER_JS %>
       <%= f.submit "Submit", class: "btn btn-dark rounded-pill" %>
     <% end %>

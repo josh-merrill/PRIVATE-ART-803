@@ -1,14 +1,18 @@
-<h1> <%= @auction.description %></h1>
-
-<h2>Image here</h2>
-
+<h2> <%= @auction.title %></h2>
 <p> <%= @auction.status%></p>
+<p> <%= @auction.description %></p>
 
 <p> <%= @auction.date%></p>
-<p> <%= @auction.start_time%></p>
-<p> <%= @auction.end_time%></p>
 
 <%= render "shared/counter", auction: @auction %>
 
-<script type=”text/javascript” src="http://localhost:3000/counters/1.js">
-</script>
+<p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
+<hr>
+<% @auction.auction_items.each do |item| %>
+  <p><%= item.artwork.title %></p>
+  <p><%= item.artwork.description %></p>
+  <p><%= item.artwork.artist.first_name %></p>
+   <%= link_to "Place bid", auction_auction_item_path(@auction, item) %>
+  <p>___</p>
+<% end %>
+
