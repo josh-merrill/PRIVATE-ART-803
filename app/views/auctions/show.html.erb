@@ -3,6 +3,9 @@
 <p> <%= @auction.description %></p>
 
 <p> <%= @auction.date%></p>
+
+<%= render "shared/counter", auction: @auction %>
+
 <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
 <hr>
 <% @auction.auction_items.each do |item| %>
@@ -12,3 +15,4 @@
    <%= link_to "Place bid", auction_auction_item_path(@auction, item) %>
   <p>___</p>
 <% end %>
+

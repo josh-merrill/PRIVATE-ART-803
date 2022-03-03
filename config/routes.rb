@@ -10,5 +10,10 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile', as: 'profile'
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
   get 'my_auctions', to: 'pages#my_auctions', as: 'my_auctions'
+  resources :auction_items, only: [] do
+    member do
+      patch 'finish_bid'
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
