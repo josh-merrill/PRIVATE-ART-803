@@ -6,10 +6,11 @@ export default class extends Controller {
   static targets = ["input", "form", "content"]
 
   connect() {
+    console.log(this.contentTarget)
     this.channel = consumer.subscriptions.create(
       { channel: "BidroomChannel", id: this.bidroomIdValue },
-      { received: data => console.log(data) }
+      { received: data => this.contentTarget.insertAdjacentHTML("beforeend", data) }
     )
-    console.log(`Subscribed to the chatroom with the id ${this.bidroomIdValue}.`)
+
   }
   }
