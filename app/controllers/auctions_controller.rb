@@ -1,8 +1,4 @@
 class AuctionsController < ApplicationController
-  # edit this controller and routes once user stories
-  # are finalized
-
-
   def index
     @auctions = Auction.all
   end
@@ -24,25 +20,25 @@ class AuctionsController < ApplicationController
     else
       render :new
     end
-
-  def edit
-    @auction = Auction.find(params[:id])
   end
 
-  def update
-    @auction = Auction.find(params[:id])
-    @auction.update(auction_params)
-    # where am i redirecting to?
-    redirect_to my_auctions_path(current_user), notice: "Your auction was successfully updated!"
-  end
+  # def edit
+  #   @auction = Auction.find(params[:id])
+  # end
 
-  def destroy
-    @auction = Auction.find(params[:id])
-    @auction.destroy
-    # where am i redirecting to?
-    redirect_to auction_path(current_user), notice: "Your auction was successfully removed."
-  end
+  # def update
+  #   @auction = Auction.find(params[:id])
+  #   @auction.update(auction_params)
+  #   # where am i redirecting to?
+  #   redirect_to my_auctions_path(current_user), notice: "Your auction was successfully updated!"
+  # end
 
+  # def destroy
+  #   @auction = Auction.find(params[:id])
+  #   @auction.destroy
+  #   # where am i redirecting to?
+  #   redirect_to auction_path(current_user), notice: "Your auction was successfully removed."
+  # end
 
   private
 
