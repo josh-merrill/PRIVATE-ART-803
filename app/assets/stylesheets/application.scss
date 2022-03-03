@@ -7,7 +7,61 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700');
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+body {
+  color: #0C0E1E;
+
+}
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 55px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #DDB465;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.byline {
+  font-size: 14px;
+  font-weight: 600;
+  color: #CFCED0;
+}
