@@ -37,6 +37,10 @@ class AuctionItemsController < ApplicationController
     redirect_to auction_item_path(current_user), notice: "Your auction item was successfully removed."
   end
 
+  def finish_bid
+
+  end
+
   private
 
   def auction_items_params

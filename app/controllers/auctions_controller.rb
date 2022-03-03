@@ -1,4 +1,6 @@
 class AuctionsController < ApplicationController
+  protect_from_forgery except: [:show]
+
   def index
     @auctions = Auction.all
   end
@@ -13,10 +15,10 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new(auction_params)
-    @auction.artist = current_user
+    @auction.user = current_user
     if @auction.save!
       # where am i redirecting to?
-      redirect_to my_auctions_path(current_user), notice: "Your auction was successfully listed!"
+      redirect_to auction_path(@auction), notice: "Your auction was successfully listed!"
     else
       render :new
     end

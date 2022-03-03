@@ -1,11 +1,9 @@
 <h1><%= @auction.description %></h1>
 
+<%= render "shared/counter_items", auction_item: @auction_item %>
 <p>artwork image</p>
 
 <div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>">
-
-  <%# <button type="button" class="btn btn-success" data-action="click->bidding#addBid">Success</button> %>
-
 
   <div class="#" data-bidding-target="content">
     <% @bids.each do |bid| %>

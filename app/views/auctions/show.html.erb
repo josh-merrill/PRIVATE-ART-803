@@ -7,3 +7,8 @@
 <p> <%= @auction.date%></p>
 <p> <%= @auction.start_time%></p>
 <p> <%= @auction.end_time%></p>
+
+<%= render "shared/counter", auction: @auction %>
+
+<script type=”text/javascript” src="http://localhost:3000/counters/1.js">
+</script>
