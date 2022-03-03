@@ -3,10 +3,6 @@ class AuctionItemsController < ApplicationController
     @auction_items = AuctionItem.all
   end
 
-  def show
-    @auction_item = AuctionItem.find(params[:id])
-  end
-
   def new
     @auction_item = AuctionItem.new
   end
@@ -42,5 +38,10 @@ class AuctionItemsController < ApplicationController
 
   def artwork_params
     params.require(:artwork).permit(:title, :price, :description, :artist_id, :photo)
+    
+  def show
+    @auction = Auction.find(params[:auction_id])
+    @auction_item = AuctionItem.find(params[:id])
+    @bids = @auction_item.bids.reverse
   end
 end
