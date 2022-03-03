@@ -9,6 +9,5 @@ Rails.application.routes.draw do
   end
   get 'profile', to: 'pages#profile', as: 'profile'
   get 'my_auctions', to: 'pages#my_auctions', as: 'my_auctions'
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
