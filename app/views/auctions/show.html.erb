@@ -16,3 +16,8 @@
   <p>___</p>
 <% end %>
 
+      <h1>Add artwork to auction</h1>
+      <%= simple_form_for [@auction, @auction_item] do |f| %>
+        <%= f.input :artwork, collection: current_user.artworks_as_artist, input_html: {class: "multiple-select", multiple: true }, include_hidden: false %>
+        <%= f.button :submit, class: 'btn btn-success w-100' %>
+      <% end %>
