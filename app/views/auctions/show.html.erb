@@ -9,10 +9,16 @@
 <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
 <hr>
 <% @auction.auction_items.each do |item| %>
-  <p><%= item.artwork.title %></p>
-  <p><%= item.artwork.description %></p>
-  <p><%= item.artwork.artist.first_name %></p>
+<div class="card-trip mb-3">
+  <%= cl_image_tag item.artwork.photo.key %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= item.artwork.title %></h2>
+      <p><%= item.artwork.description %></p>
    <%= link_to "Place bid", auction_auction_item_path(@auction, item) %>
-  <p>___</p>
+    </div>
+    <h2 class="card-trip-pricing">£<%= item.artwork.price %> </h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/syrashid" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
 <% end %>
-
