@@ -1,4 +1,8 @@
+require 'byebug'
+
 class AuctionItemsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @auction_items = AuctionItem.all
   end
@@ -48,6 +52,14 @@ class AuctionItemsController < ApplicationController
   end
 
   def finish_bid
+    @auction_item = AuctionItem.find(params["id"])
+    @artwork = @auction_item.artwork
+
+    @bids = @auction_item.bids
+    @highest_bid_price = @auction_item.bids.maximum(:price)
+    @highest_bid = @bids.where(price: @highest_bid_price)
+
+    @artwork.buyer_id = @highest_bid[0].user_id
 
   end
 
