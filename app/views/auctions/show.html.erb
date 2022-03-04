@@ -8,6 +8,7 @@
 
 <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
 <hr>
+
 <% @auction.auction_items.each do |item| %>
 <div class="card-trip mb-3">
   <%= cl_image_tag item.artwork.photo.key %>

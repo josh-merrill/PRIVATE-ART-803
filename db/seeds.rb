@@ -1,29 +1,12 @@
 require "open-uri"
 require 'json'
 
-# buffer = Cloudinary::Api.resources.to_a[0][1]
-
-Bid.delete_all
-AuctionItem.delete_all
-Artwork.delete_all
-Auction.delete_all
-User.delete_all
-
 user_1 = User.create!(first_name: "Josh", last_name: "Merrill", email: "josh@lewagon.com", password: 123456)
 user_2 = User.create!(first_name: "John", last_name: "Doe", email: "john1@gmail.com", password: 123456)
 user_3 = User.create!(first_name: 'Pablo', last_name: 'Picasso', email: 'pablo@gmail.com', password: 123456)
 
-
 puts "Generating Artworks..."
-# buffer.each do |object|
-#   file = URI.open(object["url"])
-#   buyer = [user_1, user_2, user_3].sample
-#   artist = [user_1, user_2, user_3].sample
-#   artwork = Artwork.new(title: Faker::Book.title, price: rand(100..100_000), buyer: buyer, description: Faker::Quote.most_interesting_man_in_the_world, artist: artist)
-#   artwork.photo.attach(io: file, filename: object["public_id"] + '.jpg', content_type: 'image/jpg')
-#   artwork.save!
-# end
-
+  
 file_1 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/v1645563638/pexels-steve-johnson-3189607_wf13kl.jpg")
 artwork_1 = Artwork.create(title: Faker::Music.album, price: rand(500..1000), buyer: User.all.sample, description: Faker::Fantasy::Tolkien.poem, artist: User.all.sample)
 artwork_1.photo.attach(io: file_1, filename: 'temp.jpg', content_type: 'image/jpg')
