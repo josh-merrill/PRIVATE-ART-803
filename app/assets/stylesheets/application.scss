@@ -11,3 +11,48 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Heading styles
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #DDB465;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.byline {
+  font-size: 14px;
+  font-weight: 600;
+  color: #CFCED0;
+}
