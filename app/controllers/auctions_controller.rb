@@ -7,6 +7,9 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.includes(auction_items: :artwork).find(params[:id])
+    @auction_item = AuctionItem.new
+    @auction_item.auction = @auction
+    @artworks = @auction.artworks
   end
 
   def new
