@@ -8,10 +8,12 @@
 
 <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
 <hr>
-<% @auction.auction_items.each do |item| %>
-  <p><%= item.artwork.title %></p>
-  <p><%= item.artwork.description %></p>
-  <p><%= item.artwork.artist.first_name %></p>
-   <%= link_to "Place bid", auction_auction_item_path(@auction, item) %>
-  <p>___</p>
-<% end %>
+<div class="cool">
+  <% @auction_items.each do |item| %>
+    <p><%= item.artwork.title %></p>
+    <p><%= item.artwork.description %></p>
+    <p><%= item.artwork.artist.first_name %></p>
+    <%= link_to "Place bid", auction_auction_item_path(@auction, item) %>
+    <p>___</p>
+  <% end %>
+</div>

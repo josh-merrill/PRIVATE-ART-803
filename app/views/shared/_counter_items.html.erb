@@ -1,4 +1,4 @@
-<h1>Time left</h1>
+<h5>Time left</h5>
 <!-- Display the countdown timer in an element -->
 <p id="demo"></p>
 <script>
@@ -33,7 +33,7 @@ var x = setInterval(function() {
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("demo").innerHTML = "The auction has ended!";
-    document.getElementById("new_bid").style.visibility = 'hidden'
+    document.getElementById("new_bid").style.visibility = 'hidden';
     fetch("<%= finish_bid_auction_item_url %>", {
       method: 'PATCH'
       // params: {"auction_items_id" => <%= auction_item.id %>  }
