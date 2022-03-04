@@ -50,6 +50,7 @@ class AuctionItemsController < ApplicationController
     @highest_bid = @bids.where(price: @highest_bid_price)
 
     @artwork.buyer_id = @highest_bid[0].user_id
+    @artwork.save
 
   end
 
