@@ -6,10 +6,17 @@ class AuctionsController < ApplicationController
   end
 
   def show
+
     @auction = Auction.includes(auction_items: :artwork).find(params[:id])
-    @auction_item = AuctionItem.new
-    @auction_item.auction = @auction
-    @artworks = @auction.artworks
+    @artworks = current_user.artworks_as_artist
+    @artworks.each do |artwork|
+      auction_item = AuctionItem.new
+      auction_item.auction = @auction
+      auction_item.artwork = artwork
+      auction_item.save
+    end
+    @auction_items = @auction.auction_items
+
   end
 
   def new
@@ -19,7 +26,7 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new(auction_params)
     @auction.user = current_user
-    if @auction.save!
+    if @auction.save
       # where am i redirecting to?
       redirect_to auction_path(@auction), notice: "Your auction was successfully listed!"
     else
