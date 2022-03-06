@@ -14,7 +14,8 @@ class BidsController < ApplicationController
       )
       head :ok
       #redirect_to auction_auction_item_path(@auction, @auction_item)
-
+    else
+      render 'auction_items/show', notice: "You can only place one bid"
     end
 
   end

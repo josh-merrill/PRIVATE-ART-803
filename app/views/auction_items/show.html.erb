@@ -30,7 +30,8 @@
 <%= f.input :price,
     label: false,
     placeholder: "Provide your bid",
-    wrapper_html: {class: "flex-grow-1"}
+    wrapper_html: {class: "flex-grow-1"},
+    error: "Only one bid can be inputted"
   %>
   <%= f.submit "Send", class: "btn btn-primary" %>
 <% end %>
