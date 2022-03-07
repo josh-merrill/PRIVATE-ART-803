@@ -1,11 +1,11 @@
-<h1>Part of the <%= @auction.title %> auction!</h1>
+<h2>Part of the <%= @auction.title %> auction!</h2>
 
 <%= render "shared/counter_items", auction_item: @auction_item %>
 
 
   <% if @auction_item.artwork.photo.present? %>
-    <h3>Artwork title: <%= @auction_item.artwork.title %>
-    <p>Artwork description: <%= @auction_item.artwork.description %></p>
+    <h3><%= @auction_item.artwork.title %>
+    <p><%= @auction_item.artwork.description %></p>
     <%= cl_image_tag @auction_item.artwork.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 
