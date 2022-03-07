@@ -13,7 +13,7 @@
 <div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>">
 
   <div class="#" data-bidding-target="content">
-    <% @bids.each do |bid| %>
+    <% @auction_item.bids.reverse.each do |bid| %>
       <%= render "shared/bid", bid: bid %>
     <% end %>
 </div>
@@ -33,5 +33,6 @@
     wrapper_html: {class: "flex-grow-1"},
     error: "Only one bid can be inputted"
   %>
+   <%= f.error_notification message: "You can only bid once!", class: "alert alert-danger p-1" %>
   <%= f.submit "Send", class: "btn btn-primary" %>
 <% end %>
