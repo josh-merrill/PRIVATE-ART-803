@@ -41,9 +41,11 @@
 img {
   border-radius: 10px;
   margin-right: 20px;
-
 }
 
-img .last {
-  margin-left: 500px;
+.last {
+  border-radius: 10px 0 0 10px;
+  width: 208px;
+  object-fit: cover;
+  object-position: 100% 0;
 }
