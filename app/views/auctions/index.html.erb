@@ -11,7 +11,7 @@
     <% @auctions.each do |auction|%>
       <div class="col-sm-3">
         <div class="card-product">
-          <p class="card-date-byline"><%= auction.date %></p>
+          <b class="card-date-byline"><%= auction.date %></b>
           <%= link_to auction_path (auction.id) do %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
