@@ -12,6 +12,13 @@
   color: #ffffff;
 }
 
+.home-search h4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
 .focus {
   background: linear-gradient(360deg, rgba(221,180,101,1) 0%, rgba(211,159,54,1) 100%);
 }
@@ -22,4 +29,21 @@
 
 .focus p {
   color: white;
+}
+
+.paintstroke {
+  background-image: asset-url('paint-stroke.png');
+  background-position: center;
+  background-size: cover;
+  background-size: 100% 100%;
+}
+
+img {
+  border-radius: 10px;
+  margin-right: 20px;
+
+}
+
+img .last {
+  margin-left: 500px;
 }
