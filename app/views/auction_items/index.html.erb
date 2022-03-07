@@ -1,0 +1,6 @@
+<h1>House of all the artworks auction</h1>
+<ul>
+  <% @auction_items.each do |auction_item|%>
+    <li><%= auction_item.artwork.title %></li>
+  <% end %>
+</ul>
