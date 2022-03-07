@@ -11,6 +11,7 @@
   display: inline-flex;
   align-items: center;
 }
+
 .footer-links a {
   color: white;
   text-decoration: none;
@@ -27,12 +28,4 @@
 
 .footer-links a:hover {
   color: #D39536;
-}
-
-.footer-copyright {
-  display: flex;
-}
-
-.border {
-  border-bottom: 1px solid white;
 }
