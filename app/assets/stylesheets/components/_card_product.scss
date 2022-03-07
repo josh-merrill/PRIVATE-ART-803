@@ -1,16 +1,14 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
+  width: 100%;
+  display: inline-block;
   align-items: center;
 }
 
 .card-product img {
-  height: 100%;
-  width: 120px;
+  width: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .card-product h2 {
@@ -28,5 +26,32 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 16px 0;
+}
+
+.card-date-byline {
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  top: 45px;
+  left: 10px;
+  background: #D39F36;
+  border-radius: 10px;
+  padding: 10px;
+  width: 87px;
+}
+
+
+.card-product-infos span {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+}
+
+.card-product-infos b {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
 }
