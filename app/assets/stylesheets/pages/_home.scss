@@ -1,4 +1,17 @@
 // Specific CSS for your home-page
+.home-search {
+  height:20rem;
+  background: #0C0E1E;
+  top: 0;
+}
+
+.home-search h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
 .focus {
   background: linear-gradient(360deg, rgba(221,180,101,1) 0%, rgba(211,159,54,1) 100%);
 }
