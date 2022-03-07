@@ -1,25 +1,33 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2> <%= @auction.title %></h2>
-    <p> <%= @auction.description %></p>
-    <p> <%= @auction.date%></p>
-    <%= render "shared/counter", auction: @auction %>
-    <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
-  </div>
-    <div class="col-md-6 card-list">
-  <% @auction.auction_items.each do |item| %>
-      <div class="col-sm-2 card-trip mb-3">
-        <%= cl_image_tag item.artwork.photo.key %>
-      </div>
-        <div class="col-sm-4 card-trip-infos">
-          <div>
-            <h5><%= item.artwork.title %></h5>
-            <p><%= item.artwork.description %></p>
-            <%= link_to "Place bid", auction_auction_item_path(@auction, item) %>
-          </div>
-          <h5 class="card-trip-pricing">Current price: <%= item.artwork.price %>€</h5>
-          <img src="https://kitt.lewagon.com/placeholder/users/syrashid" class="card-trip-user avatar-bordered" />
-        </div>
+<h2> <%= @auction.title %></h2>
+<p> <%= @auction.status%></p>
+<p> <%= @auction.description %></p>
+
+<p> <%= @auction.date%></p>
+
+<%= render "shared/counter", auction: @auction %>
+
+<p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
+
+
+<h1>Add artwork to auction</h1>
+  <%= simple_form_for [@auction, @auction_item] do |f| %>
+    <%= f.input :artwork, collection: current_user.artworks_as_artist, input_html: {class: "multiple-select", multiple: true }, include_hidden: false %>
+    <%= f.button :submit, class: 'btn btn-success w-100' %>
   <% end %>
+
+<hr>
+
+<% @auction.auction_items.each do |item| %>
+<div class="card-trip mb-3">
+  <%= cl_image_tag item.artwork.photo.key %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= item.artwork.title %></h2>
+      <p><%= item.artwork.description %></p>
+   <%= link_to "Place bid", auction_auction_item_path(@auction, item) %>
+    </div>
+    <h2 class="card-trip-pricing">£<%= item.artwork.price %> </h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/syrashid" class="card-trip-user avatar-bordered" />
   </div>
 </div>
+<% end %>
