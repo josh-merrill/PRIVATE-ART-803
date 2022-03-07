@@ -8,6 +8,8 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  
+
   # def my_auctions
     # @user = current_user
   # end

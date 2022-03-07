@@ -2,7 +2,8 @@ class AuctionItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @auction_items = AuctionItem.all
+    @auction_items = AuctionItem.where(auction_id: params[:auction_id])
+    # add view page
   end
 
   def new
@@ -26,7 +27,6 @@ class AuctionItemsController < ApplicationController
   # end
 
   def create
-
     @auction = Auction.find(params[:auction_id])
     @artworks = Artwork.where(id: params[:auction_item][:artwork])
     @artworks.each do |artwork|

@@ -1,13 +1,14 @@
 class AuctionsController < ApplicationController
   protect_from_forgery except: [:show]
+  before_action :enter_auctions, only: [:show]
 
   def index
     @auctions = Auction.all
   end
 
   def show
-
-    @auction = Auction.includes(auction_items: :artwork).find(params[:id])
+    # @auction = Auction.includes(:auction_items, :auction).find(params[:id])
+    @auction = Auction.includes(:auction_items).find(params[:id])
     @artworks = current_user.artworks_as_artist
     @artworks.each do |artwork|
       auction_item = AuctionItem.new
@@ -16,7 +17,7 @@ class AuctionsController < ApplicationController
       auction_item.save
     end
     @auction_items = @auction.auction_items
-
+    @auction_item = AuctionItem.new
   end
 
   def new
@@ -55,5 +56,12 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time)  end
+    params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time)
+  end
+
+  def enter_auctions
+      #create a new QR Code (rQRCode assumes string data)
+    qrcode = RQRCode::QRCode.new(auction_path)
+    @qrcode_html = qrcode.as_html
+  end
 end
