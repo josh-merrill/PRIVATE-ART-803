@@ -1,8 +1,6 @@
-
-<div class="card-product" id="bid-<%= bid.id %>">
-  <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
-  <div class="card-product-infos">
-    <h2>$<%= bid.price %></h2>
-    <strong><%= bid.user.first_name %> bid on this!</strong>
-  </div>
-</div>
+  <tr class="bid-table" id="bid-<%= bid.id %>">
+    <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
+    <td><%= bid.user.first_name %> <%= bid.user.last_name %> </td>
+    <td><%= bid.created_at %></td>
+    <td>$<%= bid.price %></td>
+  </tr>

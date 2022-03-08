@@ -14,7 +14,7 @@
       <p>PLACE A BID BELOW:</p>
       <%= simple_form_for [@auction, @auction_item, @bid],
   remote: true,
-  html: {data: {chatroom_subscription_target: "form"}, class: "d-flex"} do |f|
+  html: {data: {chatroom_subscription_target: "form"}, class: "inline-block"} do |f|
 %>
         <%= f.input :price,
     label: false,
@@ -27,10 +27,24 @@
       <% end %>
       <hr>
       <div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>">
-        <div class="#" data-bidding-target="content">
-          <% @auction_item.bids.reverse.each do |bid| %>
-            <%= render "shared/bid", bid: bid %>
-          <% end %>
+        <div class="#">
+
+          <div class="table-responsive scrollable">
+            <table class="table" data-bidding-target="content">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Bidder</th>
+                  <th scope="col">Bid Time</th>
+                  <th scope="col">Amount</th>
+                </tr>
+              </thead>
+                <% @auction_item.bids.reverse.each do |bid| %>
+                  <%= render "shared/bid", bid: bid %>
+                <% end %>
+            </table>
+          </div>
+
         </div>
       </div>
     </div>
