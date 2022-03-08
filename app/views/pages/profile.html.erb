@@ -1,31 +1,87 @@
 <div class="container my-5">
   <h2>Welcome to your profile page, <%= @user.first_name %></h2>
-  <a href=<%= new_artwork_path %>>Create a new artwork</a>
+  <%# I will find out why the user's name does not show.  I tried altering the sign-up form to include user first and last name %>
+  <div class="navbar-profile">
+    <div class="navbar-actions">
+      <ul>
+        <li><a href=<%= profile_path %>>Dashboard</li>
+        <li><a href=""></a>Bid History</li>
+        <li><a href=""></a>Purchases</li>
+        <li><a href=<%= new_artwork_path %>>Create an Artwork</li>
+        <li><a href=""></a>Settings</li>
+      </ul>
+    </div>
+  </div>
 
-<h2>All your artwork</h2>
+<hr>
 
-<% @user.artworks_as_artist.each do |artwork| %>
-  <p><%= artwork.title%> -- <%= artwork.price %> <a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
-  <% if artwork.photo.present? %>
-    <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-<% end %>
+  <div class="blocks">
+    <div class="block-one">
+      <div class="heading">
+        <h6>My Purchases</h6>
+        <%# if current_user matches bid %>
+      </div>
+      <div class="dollar-sign">
+        <%# find a dollar symbol somewhere %>
+      </div>
+    </div>
+    <div class="block-two">
+      <div class="heading">
+        <h6><a href=<%= new_auction_path %>>Create an Auction</h6>
+      </div>
+      <div class="plus-sign">
+        <%# find a plus symbol somewhere %>
+      </div>
+    </div>
+      <div class="block-three">
+        <div class="heading">
+          <h6><a href=<%= profile_path %>>My Profile</h6>
+      </div>
+      <div class="person-emoji">
+        <%# find a person symbol somewhere %>
+      </div>
+    </div>
+  </div>
 
-<h2>Artwork you've purchased</h2>
-    <% @user.artworks_as_buyer.each do |artwork| %>
-      <p><%= artwork.title%> -- <%= artwork.price %><a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
-  <% if artwork.photo.present? %>
-    <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-<% end %>
+<hr>
 
-<h2>Artwork you've sold</h2>
-        <% @user.artworks_as_artist.each do |artwork| %>
-          <% if artwork.buyer_id != current_user.id %>
-            <p><%= artwork.title%> -- <%= artwork.price %><a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
+  <h3>Artworks</h3>
+  <h4>Artwork you've listed</h4>
+  <% @user.artworks_as_artist.each do |artwork| %>
+    <p><%= artwork.title%> -- <%= artwork.price %> <a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
     <% if artwork.photo.present? %>
       <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
   <% end %>
-<% end %>
+
+  <h4>Artwork you've purchased</h4>
+  <%# We need something here to show winning bids %>
+  <% @user.artworks_as_buyer.each do |artwork| %>
+        <p><%= artwork.title%> -- <%= artwork.price %><a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
+    <% if artwork.photo.present? %>
+      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  <% end %>
+
+  <h4>Artwork you've sold</h4>
+  <% @user.artworks_as_artist.each do |artwork| %>
+    <% if artwork.buyer_id != current_user.id %>
+      <p><%= artwork.title%> -- <%= artwork.price %><a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
+        <% if artwork.photo.present? %>
+          <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+    <% end %>
+  <% end %>
+
+  <hr>
+
+  <h3>Auctions</h3>
+  <h4>Bidding Activity</h4>
+  <%# Need to insert bid history on all artworks: bids#index %>
+  <% @user.artworks_as_artist.each do |artwork| %>
+    <p><%= artwork.title%> -- <%= artwork.price %> <a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
+    <% if artwork.photo.present? %>
+      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  <% end %>
 </div>
