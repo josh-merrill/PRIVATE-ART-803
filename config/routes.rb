@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :bids, only: [:create, :show]
     end
   end
+  resources :bids, only: [:index]
   get 'profile', to: 'pages#profile', as: 'profile'
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
   get 'my_auctions', to: 'pages#my_auctions', as: 'my_auctions'

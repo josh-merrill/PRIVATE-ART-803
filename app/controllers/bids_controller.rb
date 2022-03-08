@@ -1,5 +1,9 @@
 class BidsController < ApplicationController
 
+  def index
+    @bids = Bid.where(user_id: params[:user_id])
+  end
+
   def create
     @auction = Auction.find(params[:auction_id])
     @auction_item = AuctionItem.find(params[:auction_item_id])
@@ -25,6 +29,6 @@ class BidsController < ApplicationController
   private
 
   def bids_params
-    params.require(:bid).permit(:price)
+    params.require(:bid).permit(:price, :user_id, :auction_item_id)
   end
 end
