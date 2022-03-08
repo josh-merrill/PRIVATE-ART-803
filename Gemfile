@@ -38,7 +38,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem "turbolinks_render"
-
+gem "rqrcode"
 
 
 gem 'cloudinary', '~> 1.16.0'

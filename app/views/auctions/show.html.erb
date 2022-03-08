@@ -1,17 +1,15 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-sm-12 col-md-6">
+      <div class="qr-code">
+        <%= @svg.html_safe %>
+      </div>
       <div class="me-3">
         <h6><%= @auction.date%></h6>
         <h3><%= @auction.title %></h3>
         <p> <%= @auction.description %></p>
         <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
         <p><%= render "shared/counter", auction: @auction %></p>
-        <%# <h5>Add artwork to auction:</h5> %>
-        <%# <%= simple_form_for [@auction, @auction_item] do |f| %>
-          <%# <%= f.input :artwork, collection: current_user.artworks_as_artist, input_html: {class: "multiple-select", multiple: true }, include_hidden: false %>
-          <%# <%= f.button :submit, class: 'btn btn-success w-100' %>
-          <%# <% end %>
           <div class="bids mb-5">
             <h5>Recent bids:</h5>
             <ul>

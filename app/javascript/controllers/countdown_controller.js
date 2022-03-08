@@ -3,12 +3,17 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
-  static values = { end: String }
+  static values = { end: String, url: String, info: Object, buyer: Object }
 
 // Set the date we're counting down to
 
 connect(){
   console.log(this.endValue)
+  const urlTest = this.urlValue
+  console.log(urlTest)
+  const artwork = this.infoValue;
+  const buyer = this.buyerValue;
+  console.log(buyer);
 
 
 var countDownDate = new Date(this.endValue).getTime();
@@ -38,13 +43,16 @@ var x = setInterval(function() {
 
   // If the count down is over, write some text
   if (distance < 0) {
+    console.log(urlTest);
     clearInterval(x);
+    //document.getElementById("new_bid").style.visibility = 'hidden';
     document.getElementById("demo").innerHTML = "The auction has ended!";
-    document.getElementById("new_bid").style.visibility = 'hidden';
-    fetch("<%= finish_bid_auction_item_url %>", {
+    fetch(urlTest, {
       method: 'PATCH'
       // params: {"auction_items_id" => <%= auction_item.id %>  }
       });
+    document.getElementById("new_bid").outerHTML = `<div class="flash flash-success"> <span><strong>Yay!</strong> 🎉 ${artwork['title']} was sold to ${buyer['first_name']} for ${artwork['price']} EUR.</span> </div>`;
+
   }
 }, 1000);
 }
