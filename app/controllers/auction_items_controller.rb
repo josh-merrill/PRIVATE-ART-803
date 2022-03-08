@@ -60,13 +60,14 @@ class AuctionItemsController < ApplicationController
     @highest_bid = @bids.where(price: @highest_bid_price)
 
     @artwork.buyer_id = @highest_bid[0].user_id
+    @artwork.price = @highest_bid[0].price
     @artwork.save
-    user = User.find(@artwork.buyer_id)
+    # user = User.find(@artwork.buyer_id)
 
-    BidroomChannel.broadcast_to(user, { notification: 'Test message' }
-                                #render_to_string(partial: "shared/win")
-      )
-    head :ok
+    # BidroomChannel.broadcast_to(user, { notification: 'Test message' }
+    #                             #render_to_string(partial: "shared/win")
+    #   )
+    # head :ok
   end
 
   private
