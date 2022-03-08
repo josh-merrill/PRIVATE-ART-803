@@ -19,6 +19,7 @@ class AuctionsController < ApplicationController
       standalone: true
     )
     @artworks = current_user.artworks_as_artist
+
     @artworks.each do |artwork|
       auction_item = AuctionItem.new
       auction_item.auction = @auction
@@ -65,7 +66,9 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time, :photo) 
+    params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time, :photo)
+  end
+
   end
 
   def enter_auctions
@@ -73,4 +76,5 @@ class AuctionsController < ApplicationController
     qrcode = RQRCode::QRCode.new(auction_path)
     @qrcode_html = qrcode.as_html
   end
+
 end
