@@ -1,0 +1,21 @@
+<h2>My Bidding Activity</h2>
+<h3>Bids#index</h3>
+<div class="row">
+    <% @bids.each do |bid|%>
+      <div class="col-sm-4">
+        <div class="card-product">
+          <b class="card-date-byline"><%= bid.auction_item.auction.date %></b>
+          <%= link_to bid_path (bid.id) do %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <% end %>
+          <div class="card-product-infos">
+            <span><h6><i class="fas fa-map-marker-alt"></i> <%= auction.address %></h6>&nbsp;
+              <p class="byline"> by <%= bid.auction_item.auction.user.first_name %> <%= auction.user.last_name %></p>
+            </span>
+            <h4><%= auction.title %> </h4>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

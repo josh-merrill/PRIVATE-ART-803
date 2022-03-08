@@ -2,6 +2,7 @@ require 'rqrcode'
 
 class AuctionsController < ApplicationController
   protect_from_forgery except: [:show]
+  before_action :enter_auctions, only: [:show]
 
   def index
     @auctions = Auction.all
@@ -25,7 +26,7 @@ class AuctionsController < ApplicationController
       auction_item.save
     end
     @auction_items = @auction.auction_items
-
+    @auction_item = AuctionItem.new
   end
 
   def new
@@ -64,5 +65,12 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time, :photo)  end
+    params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time, :photo) 
+  end
+
+  def enter_auctions
+      #create a new QR Code (rQRCode assumes string data)
+    qrcode = RQRCode::QRCode.new(auction_path)
+    @qrcode_html = qrcode.as_html
+  end
 end

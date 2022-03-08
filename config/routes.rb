@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :artworks, only: [:index, :new, :create, :show]
   resources :auctions, only: [:index, :new, :create, :show] do
-    resources :auction_items, only: [:show, :new, :create] do
+    resources :auction_items, only: [:index, :show, :new, :create] do
       resources :bids, only: [:create, :show]
     end
   end
+  resources :bids, only: [:index]
   get 'profile', to: 'pages#profile', as: 'profile'
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
   get 'my_auctions', to: 'pages#my_auctions', as: 'my_auctions'
