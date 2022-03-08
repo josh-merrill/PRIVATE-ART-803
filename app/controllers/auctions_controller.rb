@@ -20,7 +20,6 @@ class AuctionsController < ApplicationController
     @artworks = current_user.artworks_as_artist
 
     @artworks.each do |artwork|
-      raise
       auction_item = AuctionItem.new
       auction_item.auction = @auction
       auction_item.artwork = artwork
