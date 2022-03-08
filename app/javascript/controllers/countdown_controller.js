@@ -16,11 +16,12 @@ connect(){
   console.log(buyer);
 
 
-var countDownDate = new Date(this.endValue).getTime();
+var countDownDate = new Date(this.endValue).replace(/\s/, 'T').getTime();
+console.log(countDownDate)
 // Update the count down every 1 second
 var x = setInterval(function() {
 // Get todays date and time
-  var now = new Date().getTime();
+  var now = new Date().replace(/\s/, 'T').getTime();
 
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
