@@ -10,6 +10,7 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.includes(auction_items: :artwork).find(params[:id])
+    @user = @auction.user
     @url = auction_url(@auction)
     @qr_code = RQRCode::QRCode.new(@url)
     @svg = @qr_code.as_svg(
@@ -18,13 +19,15 @@ class AuctionsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
-    @artworks = current_user.artworks_as_artist
+    @artworks = @user.artworks_as_artist
 
     @artworks.each do |artwork|
-      auction_item = AuctionItem.new
-      auction_item.auction = @auction
-      auction_item.artwork = artwork
-      auction_item.save
+      if !artwork.auction_items.exists?
+        auction_item = AuctionItem.new
+        auction_item.auction = @auction
+        auction_item.artwork = artwork
+        auction_item.save
+      end
     end
     @auction_items = @auction.auction_items
     @auction_item = AuctionItem.new
