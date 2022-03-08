@@ -1,3 +1,49 @@
-.navbar-profile {
-  
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px
 }
+
+.main-menu {
+  display: flex;
+}
+
+.nav-list .nav-link {
+  font-size: 16px;
+  color: $smoke-grey;
+  font-weight: medium;
+}
+
+.nav-list .nav-link:hover {
+  color: $black;
+  font-weight: bold;
+}
+
+
+.card {
+  margin: 16px;
+  background-color: $yellow-gold;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.favorites .card {
+  background-color: white;
+}
+
+.recent-activity {
+  display: flex;
+  flex-direction: column;
+  text-align-last: center;
+}
+
+
+
+
+
+
+// .favorites {
+
+// }
