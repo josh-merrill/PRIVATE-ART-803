@@ -52,7 +52,12 @@ p {
 }
 
 .byline {
-  font-size: 14px;
+  // font-size: 14px;
   font-weight: 600;
+  line-height: 1;
   color: #CFCED0;
+}
+
+body {
+  background: white;
 }

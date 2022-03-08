@@ -1,3 +1,3 @@
-<h5>Time left</h5>
+<h5>Time remaining:</h5>
 <!-- Display the countdown timer in an element -->
 <p id="demo" data-controller="countdown" data-countdown-end-value="<%= auction_item.auction.end_time %>" data-countdown-url-value="<%= finish_bid_auction_item_url(auction_item) %>" data-countdown-info-value="<%= auction_item.artwork.to_json %>" data-countdown-buyer-value="<%= auction_item.artwork.buyer.to_json %>"></p>

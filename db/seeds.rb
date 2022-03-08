@@ -1,12 +1,21 @@
 require "open-uri"
 require 'json'
 
+puts "Deleting database"
+
+AuctionItem.destroy_all
+Artwork.destroy_all
+Auction.destroy_all
+User.destroy_all
+
+puts "Creating users..."
+
 user_1 = User.create!(first_name: "Josh", last_name: "Merrill", email: "josh@lewagon.com", password: 123456)
 user_2 = User.create!(first_name: "John", last_name: "Doe", email: "john1@gmail.com", password: 123456)
 user_3 = User.create!(first_name: 'Pablo', last_name: 'Picasso', email: 'pablo@gmail.com', password: 123456)
 
 puts "Generating Artworks..."
-  
+
 file_1 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/v1645563638/pexels-steve-johnson-3189607_wf13kl.jpg")
 artwork_1 = Artwork.create(title: Faker::Music.album, price: rand(500..1000), buyer: User.all.sample, description: Faker::Fantasy::Tolkien.poem, artist: User.all.sample)
 artwork_1.photo.attach(io: file_1, filename: 'temp.jpg', content_type: 'image/jpg')
@@ -57,18 +66,20 @@ artwork_10 = Artwork.create(title: Faker::Music.album, price: rand(500..1000), b
 artwork_10.photo.attach(io: file_10, filename: 'temp.jpg', content_type: 'image/jpg')
 artwork_10.save
 
-auction_1 = Auction.create(description: "test", title: Faker::Book.title, address: "123 Main street", user: user_1, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
-auction_2 = Auction.create(description: "test", title: Faker::Book.title, address: "123 Main street", user: user_1, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_1 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Paris", user: user_1, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_2 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Lisbon", user: user_1, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_3 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "London", user: user_2, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_4 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Lisbon", user: user_3, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
 
 auction_item_1 = AuctionItem.create(artwork: artwork_1, auction: auction_1)
 auction_item_2 = AuctionItem.create(artwork: artwork_2, auction: auction_1)
 auction_item_3 = AuctionItem.create(artwork: artwork_3, auction: auction_1)
-auction_item_4 = AuctionItem.create(artwork: artwork_4, auction: auction_1)
-auction_item_5 = AuctionItem.create(artwork: artwork_5, auction: auction_1)
+auction_item_4 = AuctionItem.create(artwork: artwork_4, auction: auction_2)
+auction_item_5 = AuctionItem.create(artwork: artwork_5, auction: auction_2)
 auction_item_6 = AuctionItem.create(artwork: artwork_6, auction: auction_2)
-auction_item_7 = AuctionItem.create(artwork: artwork_7, auction: auction_2)
-auction_item_8 = AuctionItem.create(artwork: artwork_8, auction: auction_2)
-auction_item_9 = AuctionItem.create(artwork: artwork_9, auction: auction_2)
-auction_item_10 = AuctionItem.create(artwork: artwork_10, auction: auction_2)
+auction_item_7 = AuctionItem.create(artwork: artwork_7, auction: auction_3)
+auction_item_8 = AuctionItem.create(artwork: artwork_8, auction: auction_3)
+auction_item_9 = AuctionItem.create(artwork: artwork_9, auction: auction_3)
+auction_item_10 = AuctionItem.create(artwork: artwork_10, auction: auction_4)
 
 puts "#{User.count} users and #{Artwork.count} artworks have been created, #{Auction.count} auctions have been created #{AuctionItem.count} auction items created"

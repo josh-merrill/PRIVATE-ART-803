@@ -1,38 +1,34 @@
-<h2>Part of the <%= @auction.title %> auction!</h2>
-
-<%= render "shared/counter_items", auction_item: @auction_item %>
-
-
-  <% if @auction_item.artwork.photo.present? %>
-    <h3><%= @auction_item.artwork.title %>
-    <p><%= @auction_item.artwork.description %></p>
-    <%= cl_image_tag @auction_item.artwork.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-
-<hr>
-<div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>" >
-
-  <div class="#" data-bidding-target="content">
-    <% @auction_item.bids.reverse.each do |bid| %>
-      <%= render "shared/bid", bid: bid %>
-    <% end %>
-</div>
-
-</div>
-
-<hr>
-<p>PLACE A BID BELOW:</p>
-
-<%= simple_form_for [@auction, @auction_item, @bid],
-  remote: true,
-  html: {data: {chatroom_subscription_target: "form"}, class: "d-flex"} do |f|
-%>
-<%= f.input :price,
-    label: false,
-    placeholder: "Provide your bid",
-    wrapper_html: {class: "flex-grow-1"},
-    error: "Only one bid can be inputted"
-  %>
-   <%= f.error_notification message: "You can only bid once!", class: "alert alert-danger p-1" %>
-  <%= f.submit "Send", class: "btn btn-primary" %>
-<% end %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 my-2 ">
+      <% if @auction_item.artwork.photo.present? %>
+        <%= cl_image_tag @auction_item.artwork.photo.key, crop: :scale, class: "w-100" %>
+      <% end %>
+    </div>
+    <div class="col-sm-12 col-md-6 my-2">
+      <h6><%= @auction.title %> Auction Item</h6>
+      <h4><%= @auction_item.artwork.title %></h4>
+        <p><%= @auction_item.artwork.description %></p>
+        <%= render "shared/counter_items", auction_item: @auction_item %>
+        <hr>
+        <p>PLACE A BID BELOW:</p>
+        <%= simple_form_for [@auction, @auction_item, @bid], remote: true, html: {data: {chatroom_subscription_target: "form"}, class: "d-flex"} do |f| %>
+          <%= f.input :price,
+                      label: false,
+                      placeholder: "Provide your bid",
+                      wrapper_html: {class: "flex-grow-1"},
+                      error: "Only one bid can be inputted" %>
+          <%= f.error_notification message: "You can only bid once!", class: "alert alert-danger p-1" %>
+          <%= f.submit "Send", class: "btn btn-primary" %>
+        <% end %>
+        <hr>
+        <div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>">
+          <div class="#" data-bidding-target="content">
+            <% @auction_item.bids.reverse.each do |bid| %>
+              <%= render "shared/bid", bid: bid %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
