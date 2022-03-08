@@ -18,7 +18,9 @@ class AuctionsController < ApplicationController
       standalone: true
     )
     @artworks = current_user.artworks_as_artist
+
     @artworks.each do |artwork|
+      raise
       auction_item = AuctionItem.new
       auction_item.auction = @auction
       auction_item.artwork = artwork
@@ -64,5 +66,7 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time, :photo)  end
+    params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time, :photo)
+  end
+
 end
