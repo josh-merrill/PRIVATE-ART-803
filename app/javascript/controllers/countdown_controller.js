@@ -3,13 +3,14 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
-  static values = { end: String }
+  static values = { end: String, url: String }
 
 // Set the date we're counting down to
 
 connect(){
   console.log(this.endValue)
-
+  const urlTest = this.urlValue
+  console.log(urlTest)
 
 var countDownDate = new Date(this.endValue).getTime();
 // Update the count down every 1 second
@@ -38,10 +39,11 @@ var x = setInterval(function() {
 
   // If the count down is over, write some text
   if (distance < 0) {
+    console.log(urlTest);
     clearInterval(x);
     document.getElementById("demo").innerHTML = "The auction has ended!";
     document.getElementById("new_bid").style.visibility = 'hidden';
-    fetch("<%= finish_bid_auction_item_url %>", {
+    fetch(urlTest, {
       method: 'PATCH'
       // params: {"auction_items_id" => <%= auction_item.id %>  }
       });

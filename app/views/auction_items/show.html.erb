@@ -10,7 +10,7 @@
   <% end %>
 
 <hr>
-<div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>">
+<div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>" >
 
   <div class="#" data-bidding-target="content">
     <% @auction_item.bids.reverse.each do |bid| %>

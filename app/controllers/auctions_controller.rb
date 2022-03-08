@@ -1,3 +1,5 @@
+require 'rqrcode'
+
 class AuctionsController < ApplicationController
   protect_from_forgery except: [:show]
 
@@ -6,8 +8,15 @@ class AuctionsController < ApplicationController
   end
 
   def show
-
     @auction = Auction.includes(auction_items: :artwork).find(params[:id])
+    @url = auction_url(@auction)
+    @qr_code = RQRCode::QRCode.new(@url)
+    @svg = @qr_code.as_svg(
+      offset: 0,
+      color: '0c0e1e',
+      shape_rendering: 'crispEdges',
+      standalone: true
+    )
     @artworks = current_user.artworks_as_artist
     @artworks.each do |artwork|
       auction_item = AuctionItem.new
