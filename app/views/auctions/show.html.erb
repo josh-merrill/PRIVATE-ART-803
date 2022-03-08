@@ -1,16 +1,37 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-sm-12 col-md-6">
-      <div class="qr-code">
-        <%= @svg.html_safe %>
-      </div>
       <div class="me-3">
         <h6><%= @auction.date%></h6>
         <h3><%= @auction.title %></h3>
         <p> <%= @auction.description %></p>
         <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
         <p><%= render "shared/counter", auction: @auction %></p>
-          <div class="bids mb-5">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fas fa-gavel"></i> Join the auction
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Join the auction</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+      <p>Sign up by following the QR code link below.</p>
+        <%= @svg.html_safe %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of modal -->
+          <div class="bids my-5">
             <h5>Recent bids:</h5>
             <ul>
               <li>List item 1</li>
