@@ -8,27 +8,27 @@ export default class extends Controller {
 // Set the date we're counting down to
 
 connect(){
-  console.log(this.endValue)
+  //console.log(typeof this.endValue)
   const urlTest = this.urlValue
-  console.log(urlTest)
+  //console.log(urlTest)
   const artwork = this.infoValue;
   const buyer = this.buyerValue;
-  console.log(buyer);
+  //console.log(buyer);
 
 
-var countDownDate = new Date(this.endValue).getTime();
-console.log(new Date(this.endValue))
+var countDownDate = new Date(this.endValue.replace(" UTC", "").replace(/-/g, "/")).getTime();
+console.log(this.endValue.replace(" UTC", ""))
 // Update the count down every 1 second
 var x = setInterval(function() {
 // Get todays date and time
   var now = new Date().getTime();
-
+  //console.log(now)
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  console.log(typeof days)
+  //console.log(typeof days)
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -45,7 +45,7 @@ var x = setInterval(function() {
 
   // If the count down is over, write some text
   if (distance < 0) {
-    console.log(urlTest);
+    //console.log(urlTest);
     clearInterval(x);
     //document.getElementById("new_bid").style.visibility = 'hidden';
     document.getElementById("demo").innerHTML = "The auction has ended!";
