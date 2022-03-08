@@ -69,7 +69,7 @@ class AuctionsController < ApplicationController
     params.require(:auction).permit(:title, :description, :address, :user_id, :date, :status, :start_time, :end_time, :photo)
   end
 
-  end
+
 
   def enter_auctions
       #create a new QR Code (rQRCode assumes string data)
