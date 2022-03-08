@@ -3,6 +3,7 @@ require 'json'
 
 puts "Deleting database"
 
+Bid.destroy_all
 AuctionItem.destroy_all
 Artwork.destroy_all
 Auction.destroy_all

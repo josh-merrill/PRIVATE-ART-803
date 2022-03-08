@@ -13,7 +13,11 @@
         <div class="card-product">
           <b class="card-date-byline"><%= auction.date %></b>
           <%= link_to auction_path (auction.id) do %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% if auction.photo.attached? %>
+              <%= cl_image_tag auction.photo.key, width: 200, height: 200, class: "w-100"%>
+            <% else %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
           <% end %>
           <div class="card-product-infos">
             <span><h6><i class="fas fa-map-marker-alt"></i> <%= auction.address %></h6>&nbsp;
