@@ -7,12 +7,15 @@
 .avatar-small {
   border: 2px solid #D39536;
   width: 50px;
+  max-height: 50px;
   border-radius: 50%;
 }
 
 .avatar-large {
   width: 100px;
   border-radius: 50%;
+  max-height: 100px;
+
 }
 .avatar-bordered {
   width: 40px;
