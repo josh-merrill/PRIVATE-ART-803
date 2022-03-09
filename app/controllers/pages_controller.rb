@@ -6,11 +6,19 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @photo = @user.photo
   end
 
-  
+  def update
+    @user = current_user
+    @user.photo = profile_params[:photo]
+    @user.save
+    redirect_to profile_path, notice: "Your profile picture was successfully updated!"
+  end
 
-  # def my_auctions
-    # @user = current_user
-  # end
+  private
+
+  def profile_params
+    params.require("/users").permit(:photo)
+  end
 end
