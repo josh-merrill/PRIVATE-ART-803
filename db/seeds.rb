@@ -20,6 +20,11 @@ user_5 = User.create!(first_name: 'Vincent', last_name: 'van Gogh', email: 'vinc
 
 puts "Generating artworks..."
 
+auction_1 = Auction.create!(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Paris", user: user_1, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_2 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Lisbon", user: user_1, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_3 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "London", user: user_2, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_4 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Lisbon", user: user_3, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+
 file_1 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/v1645563638/pexels-steve-johnson-3189607_wf13kl.jpg")
 artwork_1 = Artwork.create(title: "Pexels", price: rand(500..1000), buyer: User.all.sample, description: Faker::Fantasy::Tolkien.poem, artist: user_2)
 artwork_1.photo.attach(io: file_1, filename: 'temp.jpg', content_type: 'image/jpg')
@@ -97,11 +102,6 @@ auction_4 = Auction.new(description: "A few curated artworks that represent an u
 auction_4.photo.attach(io: file_8, filename: 'temp.jpg', content_type: 'image/jpg')
 auction_4.save
 
-# auction_5 = Auction.create(description: , title: Faker::Book.title, address: "Lisbon", user: user_3, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
-# auction_5 = Auction.create(description: , title: Faker::Book.title, address: "London", user: user_2, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
-# auction_5 = Auction.create(description: , title: Faker::Book.title, address: "Lisbon", user: user_5, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
-# auction_4 = Auction.create(description: , title: Faker::Book.title, address: "Paris", user: user_4, date: '2022-03-15', status: true, start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
-
 puts "Generating photos of auction items"
 
 # auction_item_1 = AuctionItem.create(artwork: artwork_1, auction: auction_2)
@@ -158,5 +158,6 @@ file_6 = URI.open("https://learnodo-newtonic.com/wp-content/uploads/2015/01/Girl
 auction_item_5 = AuctionItem.new(artwork: artwork_5, auction: auction_5)
 auction_item_5.photo.attach(io: file_6, filename: 'temp.jpg', content_type: 'image/jpg')
 auction_item_5.save
+
 
 puts "#{User.count} users and #{Artwork.count} artworks have been created, #{Auction.count} auctions have been created #{AuctionItem.count} auction items created"

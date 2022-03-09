@@ -11,7 +11,7 @@
     <% @auctions.each do |auction|%>
       <div class="col-sm-4">
         <div class="card-product">
-          <b class="card-date-byline"><%= auction.date %></b>
+          <b class="card-date-byline"><%= auction.end_time.to_date %></b>
           <%= link_to auction_path (auction.id) do %>
             <% if auction.photo.present? %>
               <%= cl_image_tag auction.photo.key, class: "w-100"%>

@@ -55,15 +55,14 @@
           </table>
         </div>
       </div>
-    </div>
-    <div class="col-sm-12 col-md-6">
-      <% @auction.auction_items.each do |item| %>
-        <div class="card-product-list d-flex">
-          <div class="col-sm-12 col-md-6 pe-3">
-            <% if item.artwork.photo.present? %>
-              <%= cl_image_tag item.artwork.photo.key, crop: :scale, class: "w-100" %>
-            <% else %>
-              <%= cl_image_tag item.artwork.photo.key.to_s, crop: :scale, class: "w-100" %>
+      <div class="col-sm-12 col-md-6">
+        <% @auction_items.each do |item| %>
+          <div class="card-product-list d-flex">
+            <div class="col-sm-12 col-md-6 pe-3">
+              <% if item.artwork.photo.present? %>
+                <%= cl_image_tag item.artwork.photo.key, crop: :scale, class: "w-100" %>
+              <% else %>
+                <%= cl_image_tag item.artwork.photo.key.to_s, crop: :scale, class: "w-100" %>
             <% end %>
           </div>
           <div class="col-sm-12 col-md-6 mt-3">
