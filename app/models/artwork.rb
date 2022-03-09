@@ -6,4 +6,5 @@ class Artwork < ApplicationRecord
   belongs_to :buyer, class_name: "User"
   has_many :auction_items
   has_one_attached :photo
+  validates :photo, presence: true
 end
