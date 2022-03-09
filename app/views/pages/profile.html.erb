@@ -40,12 +40,16 @@
               <% end %>
             </tbody>
           </table>
-
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <h4>My Artworks</h4>
+              <h4>Profile photo</h4>
+              <hr>
+          <%= profile_photo(@user)%>
+          <%= render "shared/user_profile", user: @user %>
+          <br>
+      <h4>My artworks</h4>
       <hr>
       <% @user.artworks_as_buyer.each do |artwork| %>
         <div class="card-product-list d-flex">
@@ -57,8 +61,8 @@
           </div>
           <div class="col-sm-12 col-md-6 mt-2">
             <div class="card-product-infos-list">
-              <h5><%= artwork.title%></h5>
-              <p><a href=<%= artwork_path(artwork) %> class="btn btn-secondary">View this artwork</a></p>
+              <h5><%= artwork.title %></h5>
+              <p><%= artwork.price %> €</p>
             </div>
           </div>
         </div>

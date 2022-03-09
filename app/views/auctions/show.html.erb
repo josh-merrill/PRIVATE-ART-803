@@ -8,38 +8,51 @@
         <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
         <p><%= render "shared/counter", auction: @auction %></p>
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <i class="fas fa-gavel"></i> Join the auction
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Join the auction</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-      <p>Sign up by following the QR code link below.</p>
-        <%= @svg.html_safe %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End of modal -->
-          <div class="bids my-5">
-            <h5>Recent bids:</h5>
-            <ul>
-              <li>List item 1</li>
-              <li>List item 2</li>
-              <li>List item 3</li>
-              <li>List item 4</li>
-            </ul>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fas fa-gavel"></i> Join the auction
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Join the auction</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <p>Sign up by following the QR code link below.</p>
+                <%= @svg.html_safe %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
+        </div>
+        <!-- End of modal -->
+        <div class="bids my-5">
+          <table class="table" data-bidding-target="content">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Artwork Title</th>
+                <th scope="col">Bid Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @auction.auction_items.each do |auction_item| %>
+                <% auction_item.bids.each do |bid| %>
+                <tr class="bid-table" id="bid-<%= bid.id %>">
+                  <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
+                  <td><%= bid.user.first_name %> <%= bid.user.last_name %></td>
+                  <td><%= bid.auction_item.artwork.title %></td>
+                  <td> <%= bid.created_at %></td>
+                </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="col-sm-12 col-md-6">
@@ -50,18 +63,21 @@
                 <%= cl_image_tag item.artwork.photo.key, crop: :scale, class: "w-100" %>
               <% else %>
                 <%= cl_image_tag item.artwork.photo.key.to_s, crop: :scale, class: "w-100" %>
+            <% end %>
+          </div>
+          <div class="col-sm-12 col-md-6 mt-3">
+            <div class="card-product-infos-list">
+              <h6><i class="fas fa-map-marker-alt"></i> Paris</h6>
+              <h4><%= item.artwork.title %></h4>
+              <p><%= item.artwork.description %></p>
+              <%= link_to auction_auction_item_path(@auction, item), class: "btn btn-primary" do %>
+             Place bid <i class="fas fa-hand-paper"></i>
               <% end %>
-                <div class="col-sm-12 col-md-6 mt-3">
-                  <div class="card-product-infos-list">
-                    <h6><i class="fas fa-map-marker-alt"></i> Paris</h6>
-                    <h4><%= item.artwork.title %></h4>
-                    <p><%= item.artwork.description %></p>
-                <%= link_to "Place bid", auction_auction_item_path(@auction, item), class: "btn btn-primary" %>
-              </div>
             </div>
           </div>
-          <br>
-        <% end %>
-      </div>
+        </div>
+        <br>
+      <% end %>
     </div>
   </div>
+</div>
