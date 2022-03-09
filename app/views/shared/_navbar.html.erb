@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-5">
   <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "art-collective.png" %>
@@ -15,9 +15,14 @@
           <li class="nav-item">
             <%= link_to "Auctions", auctions_path, class: "nav-link" %>
           </li>
+          <li class="nav-item d-block d-sm-none">
+            <%= link_to "My Profile", profile_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item d-block d-sm-none">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
-           <%= user_photo(current_user) %>
-
+            <%= user_photo(current_user) %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", profile_path, class: "dropdown-item" %>
               <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
