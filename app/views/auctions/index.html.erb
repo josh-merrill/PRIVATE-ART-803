@@ -13,7 +13,7 @@
         <div class="card-product">
           <b class="card-date-byline"><%= auction.date %></b>
           <%= link_to auction_path (auction.id) do %>
-            <% if auction.photo.attached? %>
+            <% if auction.photo.present? %>
               <%= cl_image_tag auction.photo.key, class: "w-100"%>
             <% else %>
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
