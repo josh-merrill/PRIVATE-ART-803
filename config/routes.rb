@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :bids, only: [:index]
   get 'profile', to: 'pages#profile', as: 'profile'
+  post 'profile', to: 'pages#update', as: 'update_photo'
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
   get 'my_auctions', to: 'pages#my_auctions', as: 'my_auctions'
   resources :auction_items, only: [] do

@@ -1,4 +1,12 @@
 <%# <div class="container my-5"> %>
+
+<div class="col-sm-12 col-md-6">
+  <h5>My profile picture:</h5>
+  <%= cl_image_tag @user.photo.key,
+    :height=>200, :width=>200,
+    :radius=>"max"%>
+  <%= render "shared/user_profile", user: @user %>
+</div>
 <div class="profile-page">
   <div class="top-nav">
 
