@@ -1,5 +1,6 @@
 class Bid < ApplicationRecord
-  validates :price, numericality: true
+  validates :price, numericality: { less_than: 9999999 }
+
   belongs_to :user
   belongs_to :auction_item
   validates :auction_item_id, uniqueness: { scope: :user_id,
