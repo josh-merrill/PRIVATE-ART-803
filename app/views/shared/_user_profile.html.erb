@@ -1,0 +1,4 @@
+<%= simple_form_for(user_registration_path) do |f| %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
+<% end %>

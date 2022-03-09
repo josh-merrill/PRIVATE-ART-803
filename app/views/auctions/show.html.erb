@@ -46,13 +46,16 @@
         <% @auction.auction_items.each do |item| %>
           <div class="card-product-list d-flex">
             <div class="col-sm-12 col-md-6 pe-3">
-              <%= cl_image_tag item.artwork.photo.key %>
-            </div>
-            <div class="col-sm-12 col-md-6 mt-3">
-              <div class="card-product-infos-list">
-                <h6><i class="fas fa-map-marker-alt"></i> Paris</h6>
-                <h4><%= item.artwork.title %></h4>
-                <p><%= item.artwork.description %></p>
+              <% if item.artwork.photo.present? %>
+                <%= cl_image_tag item.artwork.photo.key, crop: :scale, class: "w-100" %>
+              <% else %>
+                <%= cl_image_tag item.artwork.photo.key.to_s, crop: :scale, class: "w-100" %>
+              <% end %>
+                <div class="col-sm-12 col-md-6 mt-3">
+                  <div class="card-product-infos-list">
+                    <h6><i class="fas fa-map-marker-alt"></i> Paris</h6>
+                    <h4><%= item.artwork.title %></h4>
+                    <p><%= item.artwork.description %></p>
                 <%= link_to "Place bid", auction_auction_item_path(@auction, item), class: "btn btn-primary" %>
               </div>
             </div>
