@@ -7,7 +7,7 @@
     </div>
     <div class="row my-3">
       <div class="col-sm-3">
-        <h6>Popular collections</h6>
+        <h6>Popular Auctions</h6>
         <br>
         <p><a href="#">Collection number 1</a></p>
         <p><a href="#">Collection number 2</a></p>
@@ -16,14 +16,14 @@
       <div class="col-sm-3">
         <h6>Sell your art</h6>
         <br>
-        <p><a href="#">View my dashboard</a></p>
-        <p><a href="#">Update my profile</a></p>
+        <p><%= link_to "List artwork for sale", new_artwork_path %></p>
+        <p><%= link_to "Create an auction", new_auction_path %></p>
       </div>
       <div class="col-sm-3">
         <h6>Art Collective</h6>
         <br>
         <p><a href="#">About us</a></p>
-        <p><a href="#">Update my profile</a></p>
+        <p><%= link_to "Update my profile", edit_user_registration_path %></p>
       </div>
       <div class="col-sm-3">
         <h6>Support</h6>

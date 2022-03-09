@@ -1,47 +1,96 @@
-<div class="container my-5">
-  <h2>Welcome to your profile page, <%= @user.first_name %></h2>
-  <%# I will find out why the user's name does not show.  I tried altering the sign-up form to include user first and last name %>
-  <div class="navbar-profile">
-    <div class="navbar-actions">
-      <ul>
-        <li><a href=<%= profile_path %>>Dashboard</li>
-        <li><a href=""></a>Bid History</li>
-        <li><a href=""></a>Purchases</li>
-        <li><a href=<%= new_artwork_path %>>Create an Artwork</li>
-        <li><a href=""></a>Settings</li>
-      </ul>
+<%# <div class="container my-5"> %>
+<div class="profile-page">
+  <div class="top-nav">
+
+    <div class="nav-list">
+      <nav class="nav flex-sm-column">
+        <a class="nav-link active" aria-current="page" href="#">Profile</a>
+        <a class="nav-link" href="#">Dashboard</a>
+        <a class="nav-link" href="#">Bid History</a> <%# all user bids %>
+        <a class="nav-link" href="#">Purchases</a>
+      </nav>
+    </div>
+
+    <div class="main-menu">
+
+      <%= link_to artworks_path do %>
+      <div class="card w-20">
+        <div class="card-header">
+          <h6>$</h6>
+        </div>
+        <div class="card-body">
+          <p class="card-text">MY PURCHASES</p> <%# if current_user matches bid %>
+        </div>
+      </div>
+    <% end %>
+
+      <%= link_to new_auction_path do %>
+      <div class="card w-20">
+        <div class="card-header">
+          <h6>+</h6>
+        </div>
+        <div class="card-body">
+          <p class="card-text">CREATE AN AUCTION</p>
+        </div>
+      </div>
+    <% end %>
+
+      <%= link_to profile_path do %>
+      <div class="card w-20">
+        <div class="card-header">
+          <h6>#</h6>
+        </div>
+        <div class="card-body">
+          <p class="card-text">MY PROFILE</p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="favorites">
+      <h3>Favorites</h3> <%# category name may change %>
+        <div class="card w-20">
+          <div class="card-header">
+            <h6>@</h6>
+          </div>
+          <div class="card-body">
+            <%# find a person symbol somewhere %>
+            <p class="card-text">My Favorites</p>
+            <a href=<%= profile_path %> class="btn btn-primary">Go</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-<hr>
-
-  <div class="blocks">
-    <div class="block-one">
-      <div class="heading">
-        <h6>My Purchases</h6>
-        <%# if current_user matches bid %>
-      </div>
-      <div class="dollar-sign">
-        <%# find a dollar symbol somewhere %>
-      </div>
+  <div class="recent-activity">
+    <div class="heading">
+      <h3>My Recent Activity</h3>
     </div>
-    <div class="block-two">
-      <div class="heading">
-        <h6><a href=<%= new_auction_path %>>Create an Auction</h6>
+    <div class="actions">
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
       </div>
-      <div class="plus-sign">
-        <%# find a plus symbol somewhere %>
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
       </div>
-    </div>
-      <div class="block-three">
-        <div class="heading">
-          <h6><a href=<%= profile_path %>>My Profile</h6>
-      </div>
-      <div class="person-emoji">
-        <%# find a person symbol somewhere %>
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
       </div>
     </div>
   </div>
+
+
+
 
 <hr>
 
