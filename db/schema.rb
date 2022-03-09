@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_143102) do
+ActiveRecord::Schema.define(version: 2022_03_09_171131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,10 +66,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_143102) do
 
   create_table "auctions", force: :cascade do |t|
     t.text "description"
-    t.string "address"
     t.bigint "user_id", null: false
-    t.date "date"
-    t.string "status"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", precision: 6, null: false

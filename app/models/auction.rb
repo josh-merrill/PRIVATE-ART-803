@@ -1,9 +1,7 @@
 class Auction < ApplicationRecord
   validates :title, uniqueness: true
+  validates :title, presence: true
   validates :description, presence: true
-  validates :address, presence: true
-  validates :date, presence: true
-  validates :status, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :photo, presence: true
