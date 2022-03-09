@@ -16,7 +16,7 @@ connect(){
   //console.log(buyer);
 
 
-var countDownDate = new Date(this.endValue.replace(" UTC", "").replace(/-/g, "/")).getTime();
+var countDownDate = new Date(this.endValue.replace(/-/g, "/")).getTime();
 //console.log(this.endValue.replace(" UTC", ""))
 // Update the count down every 1 second
 var x = setInterval(function() {
