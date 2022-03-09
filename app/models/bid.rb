@@ -1,5 +1,5 @@
 class Bid < ApplicationRecord
-  validates :price, numericality: { less_than: 9999999 }
+  validates :price, numericality: { less_than: 10000000 }
 
   belongs_to :user
   belongs_to :auction_item
