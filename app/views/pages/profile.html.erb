@@ -1,135 +1,69 @@
-<div class="profile-page">
-  <div class="top-nav">
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-8 ">
+      <h4>My Dashboard</h4>
+      <hr>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <%= link_to new_artwork_path, class: "btn btn-primary w-100" do %>
+            <i class="fas fa-money-bill"></i><br>
+            Sell art
+          <% end %>
+        </div>
+        <div class="col-md-4 mb-3"><%= link_to new_auction_path, class: "btn btn-primary w-100" do %>
+            <i class="fas fa-plus-circle"></i><br>
+            Create an auction
+          <% end %></div>
+        <div class="col-md-4 mb-3"><%= link_to edit_user_registration_path, class: "btn btn-primary w-100" do %>
+            <i class="fas fa-user"></i><br>
+            Update My profile
+          <% end %></div>
+        <div class="col-md-12">
+          <h4>My bids</h4>
+          <table class="table" data-bidding-target="content">
+            <thead>
+              <tr>
+                <th scope="col">Artwork</th>
+                <th scope="col">Artwork Title</th>
+                <th scope="col">Bid Date</th>
+                <th scope="col">Bid Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% current_user.bids.each do |bid| %>
+                <tr class="bid-table" id="bid-<%= bid.id %>">
+                  <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
+                  <td><%= bid.auction_item.artwork.title %></td>
+                  <td> <%= bid.created_at %></td>
+                  <td><%= bid.price %>€</td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
 
-    <div class="nav-list">
-      <nav class="nav flex-sm-column">
-        <a class="nav-link active" aria-current="page" href="#">Profile</a>
-        <a class="nav-link" href="#">Dashboard</a>
-        <a class="nav-link" href="#">Bid History</a> <%# all user bids %>
-        <a class="nav-link" href="#">Purchases</a>
-      </nav>
+        </div>
+      </div>
     </div>
-
-    <div class="main-menu">
-
-      <%= link_to artworks_path do %>
-      <div class="card w-20">
-        <div class="card-header">
-          <h6>$</h6>
-        </div>
-        <div class="card-body">
-          <p class="card-text">MY PURCHASES</p> <%# if current_user matches bid %>
-        </div>
-      </div>
-    <% end %>
-
-      <%= link_to new_auction_path do %>
-      <div class="card w-20">
-        <div class="card-header">
-          <h6>+</h6>
-        </div>
-        <div class="card-body">
-          <p class="card-text">CREATE AN AUCTION</p>
-        </div>
-      </div>
-    <% end %>
-
-      <%= link_to profile_path do %>
-      <div class="card w-20">
-        <div class="card-header">
-          <h6>#</h6>
-        </div>
-        <div class="card-body">
-          <p class="card-text">MY PROFILE</p>
-        </div>
-      </div>
-    <% end %>
-    </div>
-
-    <div class="favorites">
-      <h3>Favorites</h3> <%# category name may change %>
-        <div class="card w-20">
-          <div class="card-header">
-            <h6>@</h6>
+    <div class="col-md-4">
+      <h4>My Artworks</h4>
+      <hr>
+      <% @user.artworks_as_buyer.each do |artwork| %>
+        <div class="card-product-list d-flex">
+          <div class="col-sm-12 col-md-6 mb-3 pe-3">
+            <% if artwork.photo.present? %>
+              <%= cl_image_tag artwork.photo.key %>
+            <% else %>
+            <% end %>
           </div>
-          <div class="card-body">
-            <%# find a person symbol somewhere %>
-            <p class="card-text">My Favorites</p>
-            <a href=<%= profile_path %> class="btn btn-primary">Go</a>
+          <div class="col-sm-12 col-md-6 mt-2">
+            <div class="card-product-infos-list">
+              <h5><%= artwork.title%></h5>
+              <p><a href=<%= artwork_path(artwork) %> class="btn btn-secondary">View this artwork</a></p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
+      <br>
     </div>
   </div>
-
-  <div class="recent-activity">
-    <div class="heading">
-      <h3>My Recent Activity</h3>
-    </div>
-    <div class="actions">
-      <div class="row">
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-      </div>
-      <div class="row">
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-      </div>
-      <div class="row">
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-<hr>
-
-  <h3>Artworks</h3>
-  <h4>Artwork you've listed</h4>
-  <% @user.artworks_as_artist.each do |artwork| %>
-    <p><%= artwork.title%> -- <%= artwork.price %> <a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
-    <% if artwork.photo.present? %>
-      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <% end %>
-
-  <h4>Artwork you've purchased</h4>
-  <%# We need something here to show winning bids %>
-  <% @user.artworks_as_buyer.each do |artwork| %>
-        <p><%= artwork.title%> -- <%= artwork.price %><a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
-    <% if artwork.photo.present? %>
-      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <% end %>
-
-  <h4>Artwork you've sold</h4>
-  <% @user.artworks_as_artist.each do |artwork| %>
-    <% if artwork.buyer_id != current_user.id %>
-      <p><%= artwork.title%> -- <%= artwork.price %><a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
-        <% if artwork.photo.present? %>
-          <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-    <% end %>
-  <% end %>
-
-  <hr>
-
-  <h3>Auctions</h3>
-  <h4>Bidding Activity</h4>
-  <%# Need to insert bid history on all artworks: bids#index %>
-  <% @user.artworks_as_artist.each do |artwork| %>
-    <p><%= artwork.title%> -- <%= artwork.price %> <a href=<%= artwork_path(artwork) %>>See this artwork</a></p>
-    <% if artwork.photo.present? %>
-      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <% end %>
 </div>
