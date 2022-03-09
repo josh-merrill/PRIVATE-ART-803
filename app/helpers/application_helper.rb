@@ -14,4 +14,12 @@ module ApplicationHelper
       image_tag "https://res.cloudinary.com/dmty5wfjh/image/upload/v1646758926/blank-profile-picture-gc6896957f_640_inlqek.png", class: "avatar-small"
     end
   end
+
+  def profile_photo(user)
+    if user.photo.attached?
+      cl_image_tag user.photo.key, class: "avatar-large"
+    else
+      image_tag "https://res.cloudinary.com/dmty5wfjh/image/upload/v1646758926/blank-profile-picture-gc6896957f_640_inlqek.png", class: "avatar-large"
+    end
+  end
 end
