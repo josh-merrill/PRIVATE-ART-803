@@ -17,7 +17,7 @@ connect(){
 
 
 var countDownDate = new Date(this.endValue.replace(" UTC", "").replace(/-/g, "/")).getTime();
-console.log(this.endValue.replace(" UTC", ""))
+//console.log(this.endValue.replace(" UTC", ""))
 // Update the count down every 1 second
 var x = setInterval(function() {
 // Get todays date and time

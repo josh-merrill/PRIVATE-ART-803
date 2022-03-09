@@ -9,7 +9,7 @@ export default class extends Controller {
     console.log(this.contentTarget)
     this.channel = consumer.subscriptions.create(
       { channel: "BidroomChannel", id: this.bidroomIdValue },
-      { received: data => this.contentTarget.insertAdjacentHTML("beforeend", data) }
+      { received: data => this.contentTarget.insertAdjacentHTML("afterbegin", data) }
     )
 
   }

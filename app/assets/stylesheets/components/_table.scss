@@ -10,3 +10,7 @@
   height: 380px;
   overflow: scroll;
 }
+
+.table > :not(:first-child){
+  border-top: 0
+}
