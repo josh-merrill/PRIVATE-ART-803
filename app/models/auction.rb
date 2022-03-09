@@ -4,7 +4,7 @@ class Auction < ApplicationRecord
   validates :description, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
   has_many :auction_items, dependent: :destroy
   has_many :artworks, through: :auction_items
   belongs_to :user
