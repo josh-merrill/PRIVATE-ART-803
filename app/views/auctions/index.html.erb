@@ -8,7 +8,7 @@
           <b class="card-date-byline"><%= auction.end_time.to_formatted_s(:short) %></b>
           <%= link_to auction_path (auction.id) do %>
             <% if auction.photo.present? %>
-              <%= cl_image_tag auction.photo.key, class: "w-100"%>
+              <%= cl_image_tag auction.photo.key, class: "w-100" %>
             <% else %>
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <% end %>

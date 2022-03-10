@@ -78,27 +78,27 @@ artwork_10.save
 puts "Generating photos for auction..."
 
 file_10 = URI.open("https://learnodo-newtonic.com/wp-content/uploads/2013/07/Mona-Lisa.jpg")
-auction_1 = Auction.new(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Paris", user: user_1, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_1 = Auction.new(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Online", user: user_1, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
 auction_1.photo.attach(io: file_10, filename: 'temp.jpg', content_type: 'image/jpg')
 auction_1.save
 
 file_9 = URI.open("https://learnodo-newtonic.com/wp-content/uploads/2014/08/The-Creation-of-Adam-1512-Michelangelo.jpg")
-auction_5 = Auction.new(description: "A visual objects that were consciously created through an expression of skill and imagination", title: Faker::Book.title, address: "Paris", user: user_5, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_5 = Auction.new(description: "A visual objects that were consciously created through an expression of skill and imagination", title: Faker::Book.title, address: "Online", user: user_5, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
 auction_5.photo.attach(io: file_9, filename: 'temp.jpg', content_type: 'image/jpg')
 auction_5.save
 
 file_6 = URI.open("https://learnodo-newtonic.com/wp-content/uploads/2015/01/Girl-with-a-Pearl-Earring-1665-Johannes-Vermeer.jpg")
-auction_2 = Auction.new(description: "Own one of the most coveted paintings in the world!", title: Faker::Book.title, address: "Paris", user: user_1, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_2 = Auction.new(description: "Own one of the most coveted paintings in the world!", title: Faker::Book.title, address: "Online", user: user_1, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
 auction_2.photo.attach(io: file_6, filename: 'temp.jpg', content_type: 'image/jpg')
 auction_2.save
 
 file_2 = URI.open("http://zet.gallery/blog/wp-content/uploads/2016/02/Vicent-Van-Gogh-Starry-Night-Famous-Oil-Paintings-www.shairart.com_.jpg")
-auction_3 = Auction.new(description: "A collection of timeless artworks.", title: Faker::Book.title, address: "Paris", user: user_1, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_3 = Auction.new(description: "A collection of timeless artworks.", title: Faker::Book.title, address: "Online", user: user_1, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
 auction_3.photo.attach(io: file_2, filename: 'temp.jpg', content_type: 'image/jpg')
 auction_3.save
 
 file_8 = URI.open("https://learnodo-newtonic.com/wp-content/uploads/2013/07/The-Scream-Edvard-Munch.jpg")
-auction_4 = Auction.new(description: "A few curated artworks that represent an unconventional and bold approach.", title: Faker::Book.title, address: "Paris", user: user_1, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+auction_4 = Auction.new(description: "A few curated artworks that represent an unconventional and bold approach.", title: Faker::Book.title, address: "Online", user: user_1, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
 auction_4.photo.attach(io: file_8, filename: 'temp.jpg', content_type: 'image/jpg')
 auction_4.save
 
