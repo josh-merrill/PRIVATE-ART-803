@@ -13,7 +13,8 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  #config.routes.default_url_options[:host] = 'https://www.artcollective.live/'
+  #routes.default_url_options[:host] = 'https://www.artcollective.live/'
+  Rails.application.default_url_options = 'https://www.artcollective.live'
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
