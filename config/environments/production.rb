@@ -14,7 +14,8 @@ Rails.application.configure do
   config.eager_load = true
 
   #routes.default_url_options[:host] = 'https://www.artcollective.live/'
-  Rails.application.default_url_options = 'https://www.artcollective.live'
+  #Rails.application.default_url_options = 'https://www.artcollective.live'
+  config.routes.default_url_options[:host] = 'https://www.artcollective.live'
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
