@@ -40,25 +40,17 @@
 
 img {
   border-radius: 10px;
-  margin-right: 20px;
+  // margin-right: 20px;
 }
 
 .body {overflow-x:hidden}
 
-.well {
-    height: 70vh;
-    z-index: 3;
-    border: 0px;
-    position: relative;
+.img-wide {
+    width: 50vw;
 }
-.well:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left:80%;
-    right:-3000px;
-    z-index: -1;
+
+.img-wide-mobile {
+  width: 100vw;
 }
 
 .col-md-6 p {

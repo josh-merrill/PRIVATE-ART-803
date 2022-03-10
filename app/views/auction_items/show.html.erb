@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-sm-12 col-md-6 my-2 ">
       <% if @auction_item.artwork.photo.present? %>
-        <%= cl_image_tag @auction_item.artwork.photo.key, crop: :scale, class: "w-100" %>
+        <%= cl_image_tag @auction_item.artwork.photo.key, crop: :scale, quality: :auto, fetch_format: :auto, class: "w-100" %>
       <% end %>
     </div>
     <div class="col-sm-12 col-md-6 my-2">
-      <h6><%= @auction.title %> Auction Item</h6>
+      <h6><%= @auction.title %></h6>
       <h4><%= @auction_item.artwork.title %></h4>
       <p><%= @auction_item.artwork.description %></p>
       <%= render "shared/counter_items", auction_item: @auction_item %>
