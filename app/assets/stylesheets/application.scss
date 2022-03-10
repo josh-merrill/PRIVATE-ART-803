@@ -61,3 +61,20 @@ p {
 body {
   background: white;
 }
+
+
+.col-md-6 .btn-primary {
+  color: #D39536;
+  background: none !important;
+  border-color: #D39536;
+  border: 2px solid #D39536;
+  font-weight: bold;
+}
+
+.col-md-6  .btn-primary:hover {
+  color: #0C0E1E;
+  background-color: #D39536 !important;
+  border: 2px solid #D39536;
+  font-weight: bold;
+
+}
