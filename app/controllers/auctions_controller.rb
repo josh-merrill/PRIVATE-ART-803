@@ -11,7 +11,7 @@ class AuctionsController < ApplicationController
   def show
     @auction = Auction.includes(auction_items: :artwork).find(params[:id])
     @user = @auction.user
-    @url = request.domain + auction_path(@auction)
+    @url = "https://www.artcollective.live/" + auction_path(@auction)
     @qr_code = RQRCode::QRCode.new(@url)
     @svg = @qr_code.as_svg(
       offset: 0,
