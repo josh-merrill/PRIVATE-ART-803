@@ -1,0 +1,6 @@
+meta_product_name: "Art Collective"
+meta_title: "Art Collective - Buy and sell artwork from artists across the globe"
+meta_description: "Find, buy and sell collection artwork from leading artists, auction houses
+and nonprofit organizations from across the world – all from one online marketplace."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@artcollective"   # required for Twitter Cards
