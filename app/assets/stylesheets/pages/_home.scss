@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .home-search {
-  height:40vh;
+  height:100%;
   background: #0C0E1E;
   top: 0;
 }
@@ -43,15 +43,10 @@ img {
   margin-right: 20px;
 }
 
-.last {
-  // border-radius: 10px 0 0 10px;
-  // max-width: 100%;
-  height: 70vh;
-}
-
-body {overflow-x:hidden}
+.body {overflow-x:hidden}
 
 .well {
+    height: 70vh;
     z-index: 3;
     border: 0px;
     position: relative;
@@ -71,4 +66,19 @@ font-size: 20px;
 }
 .container-fluid p {
   font-size: 20px;
+}
+
+
+.home-search .btn-primary {
+  background: none !important ;
+  border: 2px solid #D39536;
+  color: #D39536;
+  font-weight: 700;
+}
+
+
+.home-search .btn-primary:hover {
+  color: #0C0E1E;
+  background-color: #D39536 !important;
+  border-color: #D39536;
 }

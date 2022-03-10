@@ -1,11 +1,10 @@
 <div class="home-search text-center pt-3">
-  <h2>Discover masterpieces<br>
+  <h2 class="p-1">Discover masterpieces<br>
     from artists across the globe.</h2>
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto my-5">
-        <%= link_to "JOIN AN AUCTION", auctions_path, class: "btn btn-primary btn-lg w-100" %>
-        
+        <%= link_to "JOIN AN AUCTION", auctions_path, class: "btn btn-primary btn-lg w-50" %>
         <%#
         <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
           <div class="search-form-control form-group">
@@ -19,18 +18,16 @@
 </div>
 </div>
 <div class="container">
-  <div class="row align-items-center">
-    <div class="col-sm-12 col-md-6 paintstroke my-5">
+  <div class="row align-items-center my-5">
+    <div class="col-sm-12 col-md-6 paintstroke mb-5">
       <h6>ARTIST SERIES</h6>
       <h2>Art Collective Auctions</h2>
       <p>Get a chance to own rare, one of a kind artworks by bidding,
         acquiring, and selling your own artwork all through our online auctions.</p>
     </div>
-    <div class="col-sm-12 col-md-6 d-flex my-5">
-      <%= image_tag "homepage-image-1.jpg", class: :last %>
-      <div class="well">
-        <%= image_tag "homepage-image-2.jpg", class: :last %>
-      </div>
+    <div class="col-sm-12 col-md-6 d-flex well">
+      <%= image_tag "homepage-image-1.jpg" %>
+        <%= image_tag "homepage-image-2.jpg" %>
     </div>
   </div>
 </div>
