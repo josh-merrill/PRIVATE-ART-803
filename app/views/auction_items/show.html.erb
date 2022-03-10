@@ -12,16 +12,12 @@
       <%= render "shared/counter_items", auction_item: @auction_item %>
       <hr>
       <p>PLACE A BID BELOW:</p>
-      <%= simple_form_for [@auction, @auction_item, @bid],
-  remote: true,
-  html: {data: {chatroom_subscription_target: "form"}, class: "inline-block"} do |f|
-%>
+      <%= simple_form_for [@auction, @auction_item, @bid], remote: true, html: {data: {chatroom_subscription_target: "form"}, class: "inline-block"} do |f| %>
         <%= f.input :price,
-    label: false,
-    placeholder: "Provide your bid",
-    wrapper_html: {class: "flex-grow-1"},
-    error: "Only one bid can be inputted"
-  %>
+            label: false,
+            placeholder: "Provide your bid",
+            wrapper_html: {class: "flex-grow-1"},
+            error: "Only one bid can be inputted" %>
         <%= f.error_notification message: "You can only bid once!", class: "alert alert-danger p-1" %>
         <%= f.submit "Send", class: "btn btn-primary" %>
       <% end %>

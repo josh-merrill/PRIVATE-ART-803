@@ -41,7 +41,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @auction.auction_items.each do |auction_item| %>
+              <% @auction_items.each do |auction_item| %>
                 <% auction_item.bids.each do |bid| %>
                 <tr class="bid-table" id="bid-<%= bid.id %>">
                   <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
