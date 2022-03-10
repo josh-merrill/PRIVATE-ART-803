@@ -43,17 +43,12 @@
             <tbody>
               <% @auction.auction_items.each do |auction_item| %>
                 <% auction_item.bids.each do |bid| %>
-                  <% if bid.exists? %>
-                    <tr class="bid-table" id="bid-<%= bid.id %>">
-                      <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
-                  <% else %>
-                    <h6>There have been no bids yet for this artwork</h6>
-                      <td><%= bid.user.first_name %> <%= bid.user.last_name %></td>
-                      <td><%= bid.auction_item.artwork.title %></td>
-                      <td> <%= bid.created_at %></td>
-                    </tr>
-
-                  <% end %>
+                <tr class="bid-table" id="bid-<%= bid.id %>">
+                  <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
+                  <td><%= bid.user.first_name %> <%= bid.user.last_name %></td>
+                  <td><%= bid.auction_item.artwork.title %></td>
+                  <td> <%= bid.created_at %></td>
+                </tr>
                 <% end %>
               <% end %>
             </tbody>
