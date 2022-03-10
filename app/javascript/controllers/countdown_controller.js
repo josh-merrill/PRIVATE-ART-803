@@ -14,7 +14,7 @@ connect(){
   const artwork = this.infoValue;
   const buyer = this.buyerValue;
 
-  console.log(buyer);
+  //console.log(buyer);
 
 
 var countDownDate = new Date(this.endValue.replace(/-/g, "/")).getTime();
