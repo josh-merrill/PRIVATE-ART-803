@@ -7,6 +7,7 @@
         <p> <%= @auction.description %></p>
         <p> <%= @auction.start_time.strftime("%I:%M %p") %> - <%= @auction.end_time.strftime("%I:%M %p") %></p>
         <p><%= render "shared/counter", auction: @auction %></p>
+
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fas fa-gavel"></i> Join the auction
@@ -30,6 +31,7 @@
           </div>
         </div>
         <!-- End of modal -->
+
         <div class="bids my-5">
           <table class="table" data-bidding-target="content">
             <thead>
