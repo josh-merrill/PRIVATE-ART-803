@@ -7,7 +7,7 @@
         <div class="col-md-4 mb-3">
           <%= link_to new_artwork_path, class: "btn btn-primary w-100" do %>
             <i class="fas fa-money-bill"></i><br>
-            Sell art
+            List an artwork
           <% end %>
         </div>
         <div class="col-md-4 mb-3"><%= link_to new_auction_path, class: "btn btn-primary w-100" do %>
@@ -16,7 +16,7 @@
           <% end %></div>
         <div class="col-md-4 mb-3"><%= link_to edit_user_registration_path, class: "btn btn-primary w-100" do %>
             <i class="fas fa-user"></i><br>
-            Update My profile
+            Update my profile
           <% end %></div>
         <div class="col-md-12">
           <h4>My bids</h4>
@@ -44,12 +44,12 @@
       </div>
     </div>
     <div class="col-md-4">
-              <h4>Profile photo</h4>
+              <h4>Profile Photo</h4>
               <hr>
           <%= profile_photo(@user)%>
           <%= render "shared/user_profile", user: @user %>
           <br>
-      <h4>My artworks</h4>
+      <h4>My Artworks</h4>
       <hr>
       <% @user.artworks_as_buyer.each do |artwork| %>
         <div class="card-product-list d-flex">
