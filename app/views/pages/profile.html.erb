@@ -23,9 +23,9 @@
           <table class="table" data-bidding-target="content">
             <thead>
               <tr>
-                <th scope="col">Artwork</th>
+                <th scope="col"></th>
                 <th scope="col">Artwork Title</th>
-                <th scope="col">Bid Date</th>
+                <th scope="col">Bid Date/Time</th>
                 <th scope="col">Bid Amount</th>
               </tr>
             </thead>
@@ -34,7 +34,7 @@
                 <tr class="bid-table" id="bid-<%= bid.id %>">
                   <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
                   <td><%= bid.auction_item.artwork.title %></td>
-                  <td> <%= bid.created_at %></td>
+                  <td> <%= bid.created_at.to_formatted_s(:short) %></td>
                   <td><%= bid.price %>€</td>
                 </tr>
               <% end %>

@@ -1,6 +1,6 @@
   <tr class="bid-table" id="bid-<%= bid.id %>">
     <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
     <td><%= bid.user.first_name %> <%= bid.user.last_name %> </td>
-    <td><%= bid.created_at %></td>
-    <td>$<%= bid.price %></td>
+    <td><%= bid.created_at.strftime("%I:%M %p") %></td>
+    <td><%= bid.price %>€</td>
   </tr>
