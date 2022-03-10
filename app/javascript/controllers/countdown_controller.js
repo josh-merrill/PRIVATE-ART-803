@@ -13,7 +13,8 @@ connect(){
   //console.log(urlTest)
   const artwork = this.infoValue;
   const buyer = this.buyerValue;
-  //console.log(buyer);
+
+  console.log(buyer);
 
 
 var countDownDate = new Date(this.endValue.replace(/-/g, "/")).getTime();
@@ -50,11 +51,20 @@ var x = setInterval(function() {
     //document.getElementById("new_bid").style.visibility = 'hidden';
     document.getElementById("demo").innerHTML = "The auction has ended!";
     fetch(urlTest, {
-      method: 'PATCH'
+      method: 'PATCH',
+      body: JSON.stringify({
+        title: 'foo',
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
       // params: {"auction_items_id" => <%= auction_item.id %>  }
-      });
-    document.getElementById("new_bid").outerHTML = `<div class="flash flash-success"> <span><strong>Yay!</strong> 🎉 ${artwork['title']} was sold to ${buyer['first_name']} for ${artwork['price']} EUR.</span> </div>`;
-
+      })
+      .then((response) => response.json())
+      .then((json) => document.getElementById("new_bid").outerHTML = `<div class="flash flash-success"> <span><strong>Yay!</strong> 🎉 ${json.artwork.title} was sold to ${json.user.first_name} for ${json.artwork.price} EUR.</span> </div>`);
+    //document.getElementById("new_bid").outerHTML = `<div class="flash flash-success"> <span><strong>Yay!</strong> 🎉 ${artwork['title']} was sold to ${buyer['first_name']} for ${artwork['price']} EUR.</span> </div>`;
+    const newArtwork = this.infoValue;
+    //console.log(urlTest);
   }
 }, 1000);
 }

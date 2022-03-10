@@ -9,6 +9,7 @@ class AuctionsController < ApplicationController
   end
 
   def show
+
     @auction = Auction.includes(auction_items: :artwork).find(params[:id])
     @user = @auction.user
     @url = "https://www.artcollective.live/" + auction_path(@auction)
