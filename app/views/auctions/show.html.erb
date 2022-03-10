@@ -35,9 +35,9 @@
             <thead>
               <tr>
                 <th scope="col"></th>
-                <th scope="col">Name</th>
+                <th scope="col">Bidder</th>
                 <th scope="col">Artwork Title</th>
-                <th scope="col">Bid Date</th>
+                <th scope="col">Bid Date/Time</th>
               </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@
                   <td class= "photo-center"><%= user_photo_bid(bid.user) %></td>
                   <td><%= bid.user.first_name %> <%= bid.user.last_name %></td>
                   <td><%= bid.auction_item.artwork.title %></td>
-                  <td> <%= bid.created_at %></td>
+                  <td> <%= bid.created_at.to_formatted_s(:short) %></td>
                 </tr>
                 <% end %>
               <% end %>
