@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-sm-12 col-md-6">
       <div class="me-3">
-        <h6><%= @auction.date%></h6>
+        <h6><%= @auction.date.to_formatted_s(:long) %></h6>
         <h3><%= @auction.title %></h3>
         <p> <%= @auction.description %></p>
-        <p> <%= @auction.start_time%> - <%= @auction.end_time%></p>
+        <p> <%= @auction.start_time.strftime("%I:%M %p") %> - <%= @auction.end_time.strftime("%I:%M %p") %></p>
         <p><%= render "shared/counter", auction: @auction %></p>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
