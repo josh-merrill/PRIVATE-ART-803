@@ -35,10 +35,13 @@
                   <th scope="col">Amount</th>
                 </tr>
               </thead>
-                <% @auction_item.bids.reverse.each do |bid| %>
-                  <%= render "shared/bid", bid: bid %>
-                <% end %>
+              <% @auction_item.bids.reverse.each do |bid| %>
+                <%= render "shared/bid", bid: bid %>
+              <% end %>
             </table>
+            <% if @auction_item.bids.empty? %>
+              <h6><b><em>There have been no bids yet for this artwork<em><b></h6>
+            <% end %>
           </div>
 
         </div>
