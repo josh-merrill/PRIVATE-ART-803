@@ -20,10 +20,10 @@ user_5 = User.create!(first_name: 'Vincent', last_name: 'van Gogh', email: 'vinc
 
 puts "Generating artworks..."
 
-auction_1 = Auction.create!(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Paris", user: user_1, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
-auction_2 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Lisbon", user: user_1, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
-auction_3 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "London", user: user_2, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
-auction_4 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Lisbon", user: user_3, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+# auction_1 = Auction.create!(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Paris", user: user_1, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+# auction_2 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Lisbon", user: user_1, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+# auction_3 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "London", user: user_2, date: '2022-03-15',  start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
+# auction_4 = Auction.create(description: "One of the largest and most comprehensive collections of Pollocks, Rothkos, Lichtensteins, and Warhols in the world.", title: Faker::Book.title, address: "Lisbon", user: user_3, date: '2022-03-15', start_time: '2022-03-15 11:00:00', end_time: '2022-03-15 12:00:00')
 
 file_1 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/v1645563638/pexels-steve-johnson-3189607_wf13kl.jpg")
 artwork_1 = Artwork.create(title: "Pexels", price: rand(500..1000), buyer: User.all.sample, description: Faker::Fantasy::Tolkien.poem, artist: user_2)
