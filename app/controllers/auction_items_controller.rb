@@ -61,7 +61,9 @@ class AuctionItemsController < ApplicationController
 
     @artwork.buyer_id = @highest_bid[0].user_id
     @artwork.price = @highest_bid[0].price
+
     @artwork.save
+    render :json => { artwork: @artwork, user: @artwork.buyer }
     # user = User.find(@artwork.buyer_id)
 
     # BidroomChannel.broadcast_to(user, { notification: 'Test message' }
