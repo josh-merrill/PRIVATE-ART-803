@@ -63,7 +63,7 @@ var x = setInterval(function() {
       .then((response) => response.json())
       .then((json) => document.getElementById("new_bid").outerHTML = `<div class="flash flash-success"> <span><strong>Yay!</strong> 🎉 ${json.artwork.title} was sold to ${json.user.first_name} for ${json.artwork.price} EUR.</span> </div>`);
     //document.getElementById("new_bid").outerHTML = `<div class="flash flash-success"> <span><strong>Yay!</strong> 🎉 ${artwork['title']} was sold to ${buyer['first_name']} for ${artwork['price']} EUR.</span> </div>`;
-    const newArtwork = this.infoValue;
+    // const newArtwork = this.infoValue;
     //console.log(urlTest);
   }
 }, 1000);
