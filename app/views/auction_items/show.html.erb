@@ -16,10 +16,10 @@
         <%= f.input :price,
             label: false,
             placeholder: "Provide your bid",
-            wrapper_html: {class: "flex-grow-1"},
-            error: "Only one bid can be inputted" %>
-        <%= f.error_notification message: "You can only bid once!", class: "alert alert-danger p-1" %>
-        <%= f.submit "Submit bid", class: "btn btn-primary" %>
+            wrapper_html: {class: "flex-grow-1"}
+             %>
+        <%= f.error_notification message: "Bid already provided / exceeded maximum bid amount", class: "alert alert-danger p-1" %>
+        <%= f.submit "Send", class: "btn btn-primary" %>
       <% end %>
       <hr>
       <div data-controller="bidding" data-bidding-bidroom-id-value="<%= @auction_item.id %>">
