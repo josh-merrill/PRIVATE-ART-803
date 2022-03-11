@@ -10,14 +10,14 @@
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <i class="fas fa-gavel"></i> Join the auction
+          <i class="fas fa-qrcode"></i> Scan QR code
         </button>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Join the auction</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Sign up for the Art Collective</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body text-center">
@@ -38,8 +38,8 @@
               <tr>
                 <th scope="col"></th>
                 <th scope="col">Bidder</th>
-                <th scope="col">Artwork Title</th>
-                <th scope="col">Bid Date/Time</th>
+                <th scope="col">Artwork</th>
+                <th scope="col">Bid Time</th>
               </tr>
             </thead>
             <tbody>
@@ -53,6 +53,7 @@
                 </tr>
                 <% end %>
               <% end %>
+
             </tbody>
           </table>
         </div>
@@ -73,7 +74,7 @@
               <h6><i class="fas fa-map-marker-alt"></i> <%= @auction.address %></h6>
               <h4><%= item.artwork.title %></h4>
               <%= link_to auction_auction_item_path(@auction, item), class: "btn btn-primary" do %>
-             Place bid <i class="fas fa-hand-paper"></i>
+             Join auction <i class="fas fa-arrow-right"></i>
               <% end %>
             </div>
           </div>
