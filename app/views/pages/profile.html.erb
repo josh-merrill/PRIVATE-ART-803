@@ -4,6 +4,33 @@
       <h4>My Dashboard</h4>
       <hr>
       <div class="row">
+      <div class="col-md-4 mb-3">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fas fa-user-circle"></i><br>
+            Update profile photo
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Upload a new profile photo below</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                  <%= profile_photo(@user)%>
+                  <%= render "shared/user_profile", user: @user %>
+                  <br>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of modal -->
+        </div>
         <div class="col-md-4 mb-3">
           <%= link_to new_artwork_path, class: "btn btn-primary w-100" do %>
             <i class="fas fa-money-bill"></i><br>
@@ -14,10 +41,7 @@
             <i class="fas fa-plus-circle"></i><br>
             Create an auction
           <% end %></div>
-        <div class="col-md-4 mb-3"><%= link_to edit_user_registration_path, class: "btn btn-primary w-100" do %>
-            <i class="fas fa-user"></i><br>
-            Update my profile
-          <% end %></div>
+
         <div class="col-md-12">
           <h4>My bids</h4>
           <table class="table" data-bidding-target="content">
@@ -44,11 +68,6 @@
       </div>
     </div>
     <div class="col-md-4">
-              <h4>Profile Photo</h4>
-              <hr>
-          <%= profile_photo(@user)%>
-          <%= render "shared/user_profile", user: @user %>
-          <br>
       <h4>My Artworks</h4>
       <hr>
       <% @user.artworks_as_buyer.each do |artwork| %>
