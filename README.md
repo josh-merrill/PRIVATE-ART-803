@@ -1,4 +1,4 @@
-<h1>Art Collective</h1>
+<h1>Art Collective :art:</h1>
 
 ## About this project
 
