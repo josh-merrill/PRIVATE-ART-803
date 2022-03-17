@@ -71,5 +71,3 @@ For running the server file on you can use this command.
 Contributions, issues, and feature requests are welcome!
 
 Give a ⭐️ if you like this project!
-  
-  Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
