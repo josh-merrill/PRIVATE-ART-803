@@ -1,6 +1,6 @@
-<h1 align="center"><project-name></h1>
+<h1 align="center">Art Collective</h1>
 
-<p align="center"><project-description></p>
+<p align="center">Art Collective is a small web application that enables artists and art collectors to bid, buy and sell rare artwork to people from around the world.</p>
 
 ## Links
 
