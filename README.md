@@ -16,29 +16,42 @@
 
 ![Auctions List](public/auctions-show.png)
 
-![Auction Bidding](public/auctions-items-show.png)
+![Auction Bidding](public/auction-items-show.png)
 
 ## Built With
 
+- Ruby on Rails 
 - JavaScript
-- Node
 - NPM
 - Webpack
 - HTML
 - CSS
+- Bootstrap
 
 ## Future Updates
 
-- [ ] Reliable Storage
+- [ ] Payment Integration
 
-## Author
+## Authors
 
-**Rohit Jain**
+**Joshua Merrill**
 
 - [Profile](https://github.com/rohit19060 "Rohit jain")
 - [Email](mailto:rohitjain19060@gmail.com?subject=Hi "Hi!")
 - [Website](https://kingtechnologies.in "Welcome")
 
+**Tenzin Rose**
+
+- [Profile](https://github.com/rohit19060 "Rohit jain")
+- [Email](mailto:rohitjain19060@gmail.com?subject=Hi "Hi!")
+- [Website](https://kingtechnologies.in "Welcome")
+
+**Tempestt Woodard**
+
+- [Profile](https://github.com/rohit19060 "Rohit jain")
+- [Email](mailto:rohitjain19060@gmail.com?subject=Hi "Hi!")
+- [Website](https://kingtechnologies.in "Welcome")
+- 
 ## 🤝 Support
 
 Contributions, issues, and feature requests are welcome!
