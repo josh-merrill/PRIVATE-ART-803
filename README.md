@@ -16,38 +16,35 @@
 
 ## Built With
 
-- Ruby on Rails 
+- [Ruby on Rails](https://rubyonrails.org/)
 - JavaScript
 - NPM
 - Webpack
 - HTML
 - CSS
-- Bootstrap
+- [Bootstrap](https://getbootstrap.com/)
 
 ## Future Updates
 
 - [ ] Payment Integration
+- [ ] Email confirmations
 
 ## Authors
 
 **Joshua Merrill**
 
-- [Profile](https://github.com/rohit19060 "Rohit jain")
-- [Email](mailto:rohitjain19060@gmail.com?subject=Hi "Hi!")
-- [Website](https://kingtechnologies.in "Welcome")
+- [Profile](https://github.com/josh-merrill)
+- [Email](mailto:joshmmerrill@outlook.com?subject="Hello!")
+- [Website](https://troopl.com/joshmerrill")
 
 **Tenzin Rose**
 
-- [Profile](https://github.com/rohit19060 "Rohit jain")
-- [Email](mailto:rohitjain19060@gmail.com?subject=Hi "Hi!")
-- [Website](https://kingtechnologies.in "Welcome")
+- [Profile](https://github.com/niznet89)
 
 **Tempestt Woodard**
 
-- [Profile](https://github.com/rohit19060 "Rohit jain")
-- [Email](mailto:rohitjain19060@gmail.com?subject=Hi "Hi!")
-- [Website](https://kingtechnologies.in "Welcome")
-- 
+- [Profile](https://github.com/tnwoodard)
+
 ## 🤝 Support
 
 Contributions, issues, and feature requests are welcome!
