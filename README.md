@@ -12,11 +12,7 @@
 
 ## Screenshots
 
-![Art Collective Homepage](public/art-collective.jpg)
-
-![Auctions List](public/auctions-show.png)
-
-![Auction Bidding](public/auction-items-show.png)
+![Art Collective Homepage](public/ac-mockup.jpg)
 
 ## Built With
 
