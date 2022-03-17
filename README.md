@@ -8,9 +8,11 @@
 
 - [Repo](https://github.com/josh-merrill/PRIVATE-ART-803)
 
-- [Live](https://www.artcollective.live)
+- [Live website](https://www.artcollective.live)
+- 
+- [Read more about this project on Medium](https://tenzinrose.medium.com/the-making-of-an-art-auction-house-ba421c886fa8)
 
-## Screenshots
+## Homepage Screenshot
 
 ![Art Collective Homepage](public/ac-mockup.jpg)
 
@@ -18,15 +20,15 @@
 
 - [Ruby on Rails](https://rubyonrails.org/)
 - JavaScript
-- NPM
-- Webpack
+- [Yarn](https://yarnpkg.com/)
+- [Webpack](https://webpack.js.org/)
 - HTML
 - CSS
 - [Bootstrap](https://getbootstrap.com/)
 
 ## Future Updates
 
-- [ ] Payment Integration
+- [ ] Payment integration
 - [ ] Email confirmations
 
 ## Contributors
