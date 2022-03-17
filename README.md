@@ -20,8 +20,9 @@
 
 - [Ruby on Rails](https://rubyonrails.org/)
 - JavaScript
-- [Yarn](https://yarnpkg.com/)
 - [Webpack](https://webpack.js.org/)
+- [Yarn](https://yarnpkg.com/)
+- [PostgreSQL](https://www.postgresql.org/)
 - HTML
 - CSS
 - [Bootstrap](https://getbootstrap.com/)
