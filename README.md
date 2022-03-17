@@ -9,7 +9,7 @@
 - [Repo](https://github.com/josh-merrill/PRIVATE-ART-803)
 
 - [Live website](https://www.artcollective.live)
-- 
+
 - [Read more about this project on Medium](https://tenzinrose.medium.com/the-making-of-an-art-auction-house-ba421c886fa8)
 
 ## Homepage Screenshot
