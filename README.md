@@ -37,8 +37,8 @@
 **Joshua Merrill**
 
 - [Profile](https://github.com/josh-merrill)
-- [Email](mailto:joshmmerrill@outlook.com?subject="Hello!")
-- [Website](https://troopl.com/joshmerrill")
+- [Email](mailto:joshmmerrill@outlook.com?subject=Hello!)
+- [Website](https://troopl.com/joshmerrill)
 
 **Tenzin Rose**
 
