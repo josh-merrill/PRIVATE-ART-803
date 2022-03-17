@@ -1,23 +1,18 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+<h1>Art Collective</h1>
 
+## Description
 
-<h1 align="center">Art Collective</h1>
-
-<p align="center">Art Collective is a small web application that enables artists and art collectors to bid, buy and sell rare artwork to people from around the world.</p>
+<p>Art Collective is a small web application that enables artists and art collectors to bid, buy and sell rare artwork to people from around the world.</p>
 
 ## Links
 
-- [Repo](https://github.com/Rohit19060/<project-name> "<project-name> Repo")
+- [Repo](https://github.com/josh-merrill/PRIVATE-ART-803)
 
-- [Live](<Homepage url> "Live View")
-
-- [Bugs](https://github.com/Rohit19060/<project-name>/issues "Issues Page")
-
-- [API](<API Link> "API")
+- [Live](https://www.artcollective.live)
 
 ## Screenshots
 
-![Home Page](/screenshots/1.png "Home Page")
+![Home Page](public/art-collective.jpg)
 
 ![](/screenshots/2.png)
 
