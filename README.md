@@ -1,8 +1,8 @@
 <h1>Art Collective</h1>
 
-## Description
+## About this project
 
-<p>Art Collective is a small web application that enables artists and art collectors to bid, buy and sell rare artwork to people from around the world.</p>
+<p>Art Collective is a small web application that enables artists and art collectors to bid, buy and sell rare artwork to people from around the world. This application was developed by a team of three developers during the final two weeks of Le Wagon Lisbon's batch #803 course.</p>
 
 ## Links
 
@@ -29,7 +29,7 @@
 - [ ] Payment Integration
 - [ ] Email confirmations
 
-## Authors
+## Contributors
 
 **Joshua Merrill**
 
