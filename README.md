@@ -12,7 +12,7 @@
 
 ## Screenshots
 
-![Home Page](/screenshots/1.png "Home Page")
+![Home Page](/public/art-collective.jpg)
 
 ![](/screenshots/2.png)
 
